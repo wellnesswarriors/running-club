@@ -1311,3 +1311,20 @@ input:focus, textarea:focus{
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile hero image fix */
+@media (max-width: 768px) {
+  .hero-img {
+    object-fit: cover;
+    object-position: center top; /* was center center */
+    transform: scale(0.92);      /* zoom OUT slightly */
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.65)
+    );
+  }
+}
