@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Wellness Warriors — 8-Week Half Marathon Plan</title>
+  <meta name="description" content="Beginner-friendly 8-week half marathon plan with speed workouts on Tuesdays and long runs on Saturdays." />
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient background -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <div class="brand-mini">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
+      </div>
+      <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+        <span class="icon-x"></span>
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="index.html#about" data-close>About</a>
+      <a href="index.html#guidelines" data-close>Guidelines</a>
+      <a href="index.html#schedule" data-close>Schedule</a>
+      <a href="#plan" data-close>Training plan</a>
+      <a href="index.html#events" data-close>Events</a>
+      <a href="index.html#photos" data-close>Photos</a>
+      <a href="index.html#contact" data-close>Contact</a>
+    </nav>
+
+    <div class="drawer-cta">
+      <a class="btn btn-primary" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer">
+        Join on Strava <span class="arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
+        Facebook Group <span class="arrow">↗</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html#top" aria-label="Wellness Warriors home">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#guidelines">Guidelines</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="#plan">Training</a>
+        <a href="index.html#events">Events</a>
+        <a href="index.html#photos">Photos</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="pill" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer" title="Strava">
+          <span class="dot"></span> Strava
+        </a>
+        <a class="pill" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer" title="Facebook">
+          <span class="dot dot2"></span> Facebook
+        </a>
+        <button class="icon-btn burger" id="drawerOpen" aria-label="Open menu">
+          <span class="icon-burger"><span></span></span>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="icon-sun"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          class="hero-img"
+          src="marathon-running-light-morning-people-260nw-2448695941.jpg?auto=format&fit=crop&w=2400&q=80"
+          alt=""
+          loading="eager"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-left reveal">
+          <div class="chips">
+            <span class="chip"><span class="chip-icon">🏁</span> 8 weeks</span>
+            <span class="chip"><span class="chip-icon">⚡</span> Speed Tuesdays</span>
+            <span class="chip"><span class="chip-icon">👟</span> Long Saturdays</span>
+          </div>
+
+          <h1 class="hero-title">
+            8-Week Beginner Half Marathon Plan<br />
+          </h1>
+
+          <p class="hero-subtitle">
+            A simple, pace-inclusive plan built around our two anchors:
+            <strong>Tuesday speed workout</strong> and <strong>Saturday long run</strong>.
+            Easy runs support recovery and consistency.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#plan">View the plan <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="index.html#contact">Questions? Contact us <span class="arrow">↗</span></a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-k">Run days</div>
+              <div class="stat-v">3–4 / week</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Intensity</div>
+              <div class="stat-v">Effort-based</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal" style="--d: 120ms">
+          <div class="glass card">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Quick notes</div>
+                <div class="card-title">Pace guide</div>
+              </div>
+            </div>
+
+            <div class="guides" style="gap:12px">
+              <div class="guide">
+                <div class="g-ic">😌</div>
+                <div>
+                  <div class="g-title">Easy</div>
+                  <div class="g-sub">Conversational. You could talk in full sentences.</div>
+                </div>
+              </div>
+              <div class="guide">
+                <div class="g-ic">🧱</div>
+                <div>
+                  <div class="g-title">Long</div>
+                  <div class="g-sub">Easy → steady. Practice fueling if &gt; 75–90 minutes.</div>
+                </div>
+              </div>
+              <div class="guide">
+                <div class="g-ic">⚡</div>
+                <div>
+                  <div class="g-title">Speed</div>
+                  <div class="g-sub">Controlled hard. Never all-out; finish feeling strong.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="btn btn-soft" href="index.html#schedule">Group schedule</a>
+              <a class="btn btn-soft" href="index.html#events">Target races</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan -->
+    <section id="plan" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Training plan</div>
+          <h2>Week-by-week workouts</h2>
+          <p>
+            Each week includes a <strong>Tuesday quality session</strong>, a <strong>Saturday long run</strong>,
+            plus easy/support mileage. If you feel overly fatigued, drop the optional day first.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="glass card reveal">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Weekly rhythm</div>
+                <div class="card-title">Your default week</div>
+              </div>
+              <span class="badge">3–4 days</span>
+            </div>
+            <div class="meta">
+              <div class="meta-item"><span class="mi">⚡</span> <strong>Tue:</strong> Speed / quality</div>
+              <div class="meta-item"><span class="mi">😌</span> <strong>Thu:</strong> Easy run</div>
+              <div class="meta-item"><span class="mi">🏁</span> <strong>Sat:</strong> Long run</div>
+              <div class="meta-item"><span class="mi">🧘</span> <strong>Sun:</strong> Optional recovery / cross-train</div>
+            </div>
+            <p class="card-body">
+              Strength (optional): 1–2 short sessions/week (glutes, calves, core) + mobility after easy days.
+            </p>
+          </article>
+
+          <article class="glass card reveal" style="--d: 120ms">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Beginner-friendly</div>
+                <div class="card-title">How to modify</div>
+              </div>
+              <span class="badge">Rules</span>
+            </div>
+            <div class="guides" style="gap:12px">
+              <div class="guide"><div class="g-ic">🚶</div><div><div class="g-title">Walk breaks welcome</div><div class="g-sub">Use run/walk on long runs as needed.</div></div></div>
+              <div class="guide"><div class="g-ic">🧃</div><div><div class="g-title">Fuel long runs</div><div class="g-sub">Practice gels/snacks + hydration.</div></div></div>
+              <div class="guide"><div class="g-ic">🛟</div><div><div class="g-title">Tired? Scale first</div><div class="g-sub">Shorten speed OR swap to easy.</div></div></div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-soft" href="index.html#guidelines">Group guidelines</a>
+              <a class="btn btn-soft" href="index.html#contact">Ask for pacing help</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="glass card reveal" style="margin-top:18px">
+          <div class="card-top">
+            <div>
+              <div class="card-kicker">8-week plan</div>
+              <div class="card-title">Tuesdays + Saturdays are locked</div>
+            </div>
+            <span class="badge">13.1</span>
+          </div>
+
+          <div style="overflow:auto">
+            <table class="table" style="width:100%; border-collapse:separate; border-spacing:0 10px">
+              <thead>
+                <tr style="text-align:left">
+                  <th style="padding:10px 12px">Week</th>
+                  <th style="padding:10px 12px">Tuesday — Speed / Quality</th>
+                  <th style="padding:10px 12px">Thursday — Easy</th>
+                  <th style="padding:10px 12px">Saturday — Long Run</th>
+                  <th style="padding:10px 12px">Sunday — Optional</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="glass" style="border-radius:16px">
+                  <td style="padding:10px 12px"><strong>1</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 4×1 min fast / 2 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">3 mi easy</td>
+                  <td style="padding:10px 12px"><strong>5 mi</strong> easy</td>
+                  <td style="padding:10px 12px">2 mi very easy or cross-train</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>2</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 5×1 min fast / 2 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">3–4 mi easy</td>
+                  <td style="padding:10px 12px"><strong>6 mi</strong> easy</td>
+                  <td style="padding:10px 12px">2–3 mi recovery or cross-train</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>3</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 3×3 min steady-hard / 2 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">4 mi easy</td>
+                  <td style="padding:10px 12px"><strong>7 mi</strong> easy</td>
+                  <td style="padding:10px 12px">3 mi easy</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>4</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 4×3 min steady-hard / 2 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">4 mi easy</td>
+                  <td style="padding:10px 12px"><strong>8 mi</strong> easy</td>
+                  <td style="padding:10px 12px">3 mi recovery</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>5</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 2×8 min comfortably hard / 3 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">4–5 mi easy</td>
+                  <td style="padding:10px 12px"><strong>9 mi</strong> easy</td>
+                  <td style="padding:10px 12px">3 mi easy or cross-train</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>6</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 3×8 min comfortably hard / 3 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">5 mi easy</td>
+                  <td style="padding:10px 12px"><strong>10–11 mi</strong> easy</td>
+                  <td style="padding:10px 12px">3 mi recovery</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>7</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 2×10 min at goal pace / 3 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">4 mi easy</td>
+                  <td style="padding:10px 12px"><strong>12 mi</strong> easy</td>
+                  <td style="padding:10px 12px">2–3 mi very easy</td>
+                </tr>
+                <tr class="glass">
+                  <td style="padding:10px 12px"><strong>8</strong></td>
+                  <td style="padding:10px 12px">1 mi WU • 4×2 min at goal pace / 2 min easy • 1 mi CD</td>
+                  <td style="padding:10px 12px">3 mi easy</td>
+                  <td style="padding:10px 12px"><strong>Race:</strong> 13.1 mi</td>
+                  <td style="padding:10px 12px">Walk or light jog</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-actions" style="margin-top:10px">
+            <a class="btn btn-primary" href="index.html#schedule">Run with the group <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="#tips">Read tips <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips -->
+    <section id="tips" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Extras</div>
+          <h2>Beginner tips that work</h2>
+          <p>Keep it simple. Keep it consistent. Stack good weeks.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature reveal">
+            <div class="feature-icon">🧊</div>
+            <h3>Warm up + cool down</h3>
+            <p>Before speedwork: easy jog + drills. After: easy jog + light stretching.</p>
+          </article>
+
+          <article class="feature reveal" style="--d: 80ms">
+            <div class="feature-icon">🛌</div>
+            <h3>Recovery is training</h3>
+            <p>Sleep, hydration, and easy days are where fitness “sticks.”</p>
+          </article>
+
+          <article class="feature reveal" style="--d: 160ms">
+            <div class="feature-icon">🧠</div>
+            <h3>Effort over pace</h3>
+            <p>Weather, sleep, stress: pace changes. Effort keeps training honest.</p>
+          </article>
+        </div>
+
+        <footer class="footer">
+          <div class="footer-left">
+            <img src="logo.jpeg" alt="Wellness Warriors logo" class="footer-logo" onerror="this.style.display='none'">
+            <div>
+              <div class="footer-name">Wellness Warriors</div>
+              <div class="footer-tag">Run • Recover • Repeat</div>
+            </div>
+          </div>
+          <div class="footer-right">
+            <a href="https://strava.app.link/ikZjfp1b8Yb" target="_blank" rel="noreferrer">Strava</a>
+            <a href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">Facebook</a>
+            <span class="sep">·</span>
+            <span>© <span id="year"></span></span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Wellness Warriors — Run • Recover • Repeat</title>
+  <meta name="description" content="Wellness Warriors is a pace-inclusive running group with weekly track workouts and long runs, training for Chicago Bank of America 13.1 and Marathon." />
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient background -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <div class="brand-mini">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
+      </div>
+      <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+        <span class="icon-x"></span>
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="#about" data-close>About</a>
+      <a href="#guidelines" data-close>Guidelines</a>
+      <a href="#schedule" data-close>Schedule</a>
+      <a href="#training" data-close>Training</a>
+      <a href="events.html" data-close>Events</a>
+      <a href="#photos" data-close>Photos</a>
+      <a href="#contact" data-close>Contact</a>
+    </nav>
+
+    <div class="drawer-cta">
+      <a class="btn btn-primary" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer">
+        Join on Strava <span class="arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
+        Facebook Group <span class="arrow">↗</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="Wellness Warriors home">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#guidelines">Guidelines</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#training">Training</a>
+        <a href="events.html">Events</a>
+        <a href="#photos">Photos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="pill" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer" title="Strava">
+          <span class="dot"></span> Strava
+        </a>
+        <a class="pill" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer" title="Facebook">
+          <span class="dot dot2"></span> Facebook
+        </a>
+        <button class="icon-btn burger" id="drawerOpen" aria-label="Open menu">
+          <span class="icon-burger"><span></span></span>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="icon-sun"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          class="hero-img"
+          src="marathon-running-light-morning-people-260nw-2448695941.jpg?auto=format&fit=crop&w=2400&q=80"
+          alt=""
+          loading="eager"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-left reveal">
+          <div class="chips">
+            <span class="chip">
+              <span class="chip-icon">👟</span>
+              All paces welcome
+            </span>
+            <span class="chip">
+              <span class="chip-icon">☕</span>
+              Coffee sometimes
+            </span>
+            <span class="chip">
+              <span class="chip-icon">🏁</span>
+              Chicago marathon training
+            </span>
+          </div>
+          
+
+          <h1 class="hero-title">
+            Welcome to Wellness Warriors!<br />
+<!--            <span class="muted">Stay for your people.</span> -->
+          </h1>
+
+          <p class="hero-subtitle">
+            We’re a fun, friendly running group based in the northern Chicago suburbs, around Buffalo Grove area. Some days we fly. Some days we shuffle. Either way—we show up, move our bodies, and hype each other up.<p></p>
+            We train for the Chicago Bank of America <strong>13.1 Half Marathon</strong> and <strong>Marathon</strong>. And many other races within U.S. and world major marathons around the world.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#schedule">Weekly schedule <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="#contact">Contact <span class="arrow">↗</span></a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-k">Weekly meetups</div>
+              <div class="stat-v">2</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Anchor workouts</div>
+              <div class="stat-v">Track + Long</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal" style="--d: 120ms">
+          <div class="glass card">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Next up</div>
+                <div class="card-title">Your week in 30 seconds</div>
+              </div>
+            </div>
+
+            <div class="agenda">
+              <div class="agenda-item">
+                <div class="agenda-icon">⚡</div>
+                <div class="agenda-body">
+                  <div class="agenda-title">Tuesday Speed Workout</div>
+                  <div class="agenda-sub">6:00 PM <br/>High School - running track<br/>Century Park - ski hill</div>
+                </div>
+              </div>
+
+              <div class="agenda-item">
+                <div class="agenda-icon">🏁</div>
+                <div class="agenda-body">
+                  <div class="agenda-title">Saturday Long Run</div>
+                  <div class="agenda-sub">6:30 AM <br/>Even weeks → <strong>Busse Woods</strong><br/>Odd weeks → <strong>Century Park</strong></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card-actions">
+              <a class="btn btn-soft" href="#training">Training plan</a>
+              <a class="btn btn-soft" href="#photos">Photos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <a class="scroll-hint" href="#about" aria-label="Scroll to content">
+        <span>Scroll</span>
+        <span class="chev"></span>
+      </a>
+      -->
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">About</div>
+          <h2>Wellness-first running, seriously fun energy</h2>
+          <p>
+            We’re pace-inclusive, community-powered, and focused on sustainable progress.
+            Expect friendly leaders, smart workouts, and a vibe that makes you want to show up again.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature reveal">
+            <div class="feature-icon">🤝</div>
+            <h3>Inclusive by design</h3>
+            <p>All paces welcome. We group by comfort level and regroup often.</p>
+          </article>
+
+          <article class="feature reveal" style="--d: 80ms">
+            <div class="feature-icon">🧠</div>
+            <h3>Recovery is training</h3>
+            <p>Sleep, mobility, fueling, and easy days matter. Consistency wins.</p>
+          </article>
+
+          <article class="feature reveal" style="--d: 160ms">
+            <div class="feature-icon">🛡️</div>
+            <h3>Safety + respect</h3>
+            <p>Clear meetups, buddy options, and a no-drama, respect-first culture.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guidelines -->
+    <section id="guidelines" class="section section-alt">
+      <div class="container">
+        <div class="split">
+          <div class="section-head reveal">
+            <div class="section-kicker">Guidelines</div>
+            <h2>Simple rules. Strong community.</h2>
+            <p>We keep things clean, safe, and welcoming — so everyone can focus on the run.</p>
+
+            <div class="callout">
+              <div class="callout-title">No-drop long runs</div>
+              <div class="callout-body">Nobody gets left behind. We plan regroup points and match pace groups.</div>
+            </div>
+          </div>
+
+          <div class="guides reveal" style="--d: 120ms">
+            <div class="guide"><div class="g-ic">⏱️</div><div><div class="g-title">Arrive 10 minutes early</div><div class="g-sub">Quick hello, warmup, route notes.</div></div></div>
+            <div class="guide"><div class="g-ic">💧</div><div><div class="g-title">Hydrate + fuel</div><div class="g-sub">Water always. For long runs, bring gels/snacks.</div></div></div>
+            <div class="guide"><div class="g-ic">🔦</div><div><div class="g-title">Be visible</div><div class="g-sub">Lights/reflective gear in low light.</div></div></div>
+            <div class="guide"><div class="g-ic">🚦</div><div><div class="g-title">Cross safely</div><div class="g-sub">Follow signals, watch traffic, share the path.</div></div></div>
+            <div class="guide"><div class="g-ic">🌩️</div><div><div class="g-title">Weather-smart</div><div class="g-sub">Lightning/extremes → modified plan or cancel.</div></div></div>
+            <div class="guide"><div class="g-ic">💬</div><div><div class="g-title">Respect-first</div><div class="g-sub">Encouragement only — no pace shaming.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Weekly schedule</div>
+          <h2>Two anchors. Infinite momentum.</h2>
+          <p>Tuesday speedwork builds strength. Saturday long runs build endurance. Everything else supports recovery.</p>
+        </div>
+
+        <div class="cards">
+          <article class="glass card reveal">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Workout</div>
+                <div class="card-title">Tuesday Speed Workout</div>
+              </div>
+              <span class="badge">TUE</span>
+            </div>
+            <div class="meta">
+              <div class="meta-item"><span class="mi">🕕</span> 6:00 PM</div>
+              <div class="meta-item"><span class="mi">📍</span> Aptakisic Jr. High School track</div>
+              <div class="meta-item"><span class="mi">📍</span> Century Park</div>
+              <div class="meta-item"><span class="mi">🎯</span> Effort-based</div>
+            </div>
+            <p class="card-body">Guided warmup → speed set (scaled by effort) → cooldown. Perfect for 13.1 + marathon fitness.</p>
+            <div class="card-actions">
+              <a class="btn btn-soft" href="#training">See plan</a>
+              <a class="btn btn-soft" href="#contact">Ask a question</a>
+            </div>
+          </article>
+
+          <article class="glass card reveal" style="--d: 120ms">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Long run</div>
+                <div class="card-title">Saturday Long Run</div>
+              </div>
+              <span class="badge" id="satBadge">SAT</span>
+            </div>
+            <div class="meta">
+              <div class="meta-item"><span class="mi">🕡</span> 6:30 AM</div>
+              <div class="meta-item"><span class="mi">📍</span> <span id="satLocation">—</span></div>
+              <div class="meta-item"><span class="mi">📍</span> Bussee Woods</div>
+              <div class="meta-item"><span class="mi">🧩</span> Pace groups</div>
+            </div>
+            <p class="card-body">No-drop policy with planned regroup points. Distances vary so you can build safely week to week.</p>
+            <div class="card-actions">
+              <a class="btn btn-soft" href="#events">Target races</a>
+              <a class="btn btn-soft" href="#photos">See the vibe</a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Training -->
+    <section id="training" class="section section-alt">
+
+      
+
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Training plan</div>
+          <h2>Targeting Chicago Bank of America 13.1 + Marathon</h2>
+          <p>A clean structure you can repeat: quality Tuesday, long Saturday, easy/support runs between.</p>
+        </div>
+
+        <div class="tabs reveal" style="--d: 120ms">
+          <div class="tabbar" role="tablist" aria-label="Training plans">
+            <button class="tab active" id="tabHalf" role="tab" aria-selected="true" aria-controls="panelHalf">13.1 Half</button>
+            <button class="tab" id="tabFull" role="tab" aria-selected="false" aria-controls="panelFull">Marathon</button>
+          </div>
+
+          <div class="tabpanes">
+            <div class="pane active" id="panelHalf" role="tabpanel" aria-labelledby="tabHalf">
+              <div class="pane-grid">
+                <div class="pane-card">
+                  <div class="pane-title">Weekly rhythm</div>
+                  <ul>
+                    <li><strong>Tue:</strong> speed workout (track)</li>
+                    <li><strong>Thu:</strong> easy run + mobility</li>
+                    <li><strong>Sat:</strong> long run (progress gradually)</li>
+                    <li><strong>Optional:</strong> strength 1–2× / week</li>
+                  </ul>
+                </div>
+                <div class="pane-card">
+                  <div class="pane-title">Focus</div>
+                  <p>Improve efficiency and speed while keeping long runs comfortable. Recovery is non-negotiable.</p>
+                  <div class="pill-row">
+                    <span class="pill2">Tempo</span>
+                    <span class="pill2">Intervals</span>
+                    <span class="pill2">Easy miles</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pane" id="panelFull" role="tabpanel" aria-labelledby="tabFull" hidden>
+              <div class="pane-grid">
+                <div class="pane-card">
+                  <div class="pane-title">Weekly rhythm</div>
+                  <ul>
+                    <li><strong>Tue:</strong> quality (scaled)</li>
+                    <li><strong>Midweek:</strong> 1–2 easy runs</li>
+                    <li><strong>Sat:</strong> long run + fueling practice</li>
+                    <li><strong>Optional:</strong> strength + mobility</li>
+                  </ul>
+                </div>
+                <div class="pane-card">
+                  <div class="pane-title">Focus</div>
+                  <p>Build sustainable volume, practice fueling, and protect recovery so you can stack good weeks.</p>
+                  <div class="pill-row">
+                    <span class="pill2">Fueling</span>
+                    <span class="pill2">Long-run pacing</span>
+                    <span class="pill2">Recovery</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="download-row">
+            <a class="btn btn-soft" href="half-marathon-8-week.html">
+              Half Marathon Plan <span class="arrow">→</span>
+            </a>
+            <a class="btn btn-soft" href="marathon-16-week.html">
+              Marathon Plan <span class="arrow">→</span>
+            </a>
+            <a class="btn btn-soft" href="https://strava.app.link/ikZjfp1b8Yb" target="_blank" rel="noreferrer">
+              Updates on Strava <span class="arrow">↗</span>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Run events</div>
+          <h2>Races + meetups</h2>
+          <p>These are our main targets — plus fun pop-ups announced on Strava and Facebook.</p>
+        </div>
+
+        <div class="event-grid">
+          <article class="event reveal">
+            <div class="event-top">
+              <div class="event-title">Chicago Bank of America 13.1 Half Marathon</div>
+              <span class="event-tag">Target</span>
+            </div>
+            <p class="event-body">Speed + endurance focus. Great first goal race or PR attempt.</p>
+            <button class="btn btn-soft" type="button" disabled>June 7th, 2026</button>
+          </article>
+
+          <article class="event reveal" style="--d: 90ms">
+            <div class="event-top">
+              <div class="event-title">Chicago Bank of America Marathon</div>
+              <span class="event-tag">Target</span>
+            </div>
+            <p class="event-body">Consistency, long-run progression, and fueling practice for race day confidence.</p>
+            <button class="btn btn-soft" type="button" disabled>October 11th, 2026</button>
+          </article>
+
+          <article class="event reveal" style="--d: 180ms">
+            <div class="event-top">
+              <div class="event-title">Monthly Fun Run + Coffee</div>
+              <span class="event-tag alt">Community</span>
+            </div>
+            <p class="event-body">Easy miles, big laughs. Dates announced on social.</p>
+            <a class="btn btn-soft" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
+              Watch Facebook <span class="arrow">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photos -->
+    <section id="photos" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Photos</div>
+          <h2>The vibe</h2>
+          <p>We run. We have fun. We celebrate. We support each other</p>
+        </div>
+
+        <div class="gallery reveal" style="--d: 120ms">
+          <button class="shot" data-full="marathon-celebration.jpeg?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 1">
+            <img src="marathon-celebration.jpeg?auto=format&fit=crop&w=1200&q=80" alt="Runners on a trail" loading="lazy" />
+          </button>
+          <button class="shot" data-full="13.1.jpeg?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 2">
+            <img src="13.1.jpeg?auto=format&fit=crop&w=1200&q=80" alt="Track workout" loading="lazy" />
+          </button>
+          <button class="shot" data-full="marathon.jpeg?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 3">
+            <img src="marathon.jpeg?auto=format&fit=crop&w=1200&q=80" alt="Race day" loading="lazy" />
+          </button>
+          <button class="shot" data-full="grouprun.jpeg?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 4">
+            <img src="grouprun.jpeg?auto=format&fit=crop&w=1200&q=80" alt="Runners in city" loading="lazy" />
+          </button>
+          <button class="shot" data-full="indoor.JPG?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 5">
+            <img src="indoor.JPG?auto=format&fit=crop&w=1200&q=80" alt="Group run" loading="lazy" />
+          </button>
+          <button class="shot" data-full="bib.JPG?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 6">
+            <img src="bib.JPG?auto=format&fit=crop&w=1200&q=80" alt="Running shoes" loading="lazy" />
+          </button>
+          <button class="shot" data-full="13.1-training.JPG?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 5">
+            <img src="13.1-training.JPG?auto=format&fit=crop&w=1200&q=80" alt="Group run" loading="lazy" />
+          </button>
+          <button class="shot" data-full="chimarathon.jpeg?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 6">
+            <img src="chimarathon.jpeg?auto=format&fit=crop&w=1200&q=80" alt="Running shoes" loading="lazy" />
+          </button>
+          <button class="shot" data-full="long-grove.jpeg?auto=format&fit=crop&w=2400&q=80" aria-label="Open photo 6">
+            <img src="long-grove.jpeg?auto=format&fit=crop&w=1200&q=80" alt="Running shoes" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Contact</div>
+          <h2>Let’s run</h2>
+          <p>Questions about pace groups, meetups, or the plan? Reach out anytime.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="glass card reveal">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Email</div>
+                <div class="card-title">wellnesswarriorschicago@gmail.com</div>
+              </div>
+              <span class="badge">✉️</span>
+            </div>
+
+            <p class="card-body">
+              Email is the fastest way to connect. You can also follow updates on Strava and Facebook.
+            </p>
+
+            <div class="card-actions">
+              <a class="btn btn-primary" href="mailto:wellnesswarriorschicago@gmail.com">Email us <span class="arrow">↗</span></a>
+              <a class="btn btn-ghost" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">Facebook <span class="arrow">↗</span></a>
+            </div>
+          </div>
+
+          <form class="glass card reveal" style="--d: 120ms" onsubmit="return false;">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Message</div>
+                <div class="card-title">Send a note</div>
+              </div>
+              <span class="badge">🗨️</span>
+            </div>
+
+            <label class="field">
+              <span>Name</span>
+              <input type="text" placeholder="Your name" autocomplete="name" />
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" placeholder="you@email.com" autocomplete="email" />
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea rows="5" placeholder="What should we know?"></textarea>
+            </label>
+
+<!--            <button class="btn btn-soft" type="button" disabled title="Placeholder">Send</button> -->
+          </form>
+        </div>
+
+        <footer class="footer">
+          <div class="footer-left">
+            <img src="logo.jpeg" alt="Wellness Warriors logo" class="footer-logo" onerror="this.style.display='none'">
+            <div>
+              <div class="footer-name">Wellness Warriors</div>
+              <div class="footer-tag">Run • Recover • Repeat</div>
+            </div>
+          </div>
+          <div class="footer-right">
+            <a href="https://strava.app.link/ikZjfp1b8Yb" target="_blank" rel="noreferrer">Strava</a>
+            <a href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">Facebook</a>
+            <span class="sep">·</span>
+            <span>© <span id="year"></span></span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">
+      <span class="icon-x"></span>
+    </button>
+    <img id="lightboxImg" alt="Expanded photo" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

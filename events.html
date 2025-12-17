@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Wellness Warriors — Race Events</title>
+  <meta name="description" content="Upcoming races the Wellness Warriors are running: dates, distances, locations, and race leaders." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient background -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <div class="brand-mini">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
+      </div>
+      <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+        <span class="icon-x"></span>
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="index.html#about" data-close>About</a>
+      <a href="index.html#guidelines" data-close>Guidelines</a>
+      <a href="index.html#schedule" data-close>Schedule</a>
+      <a href="index.html#events" data-close>Events</a>
+      <a href="index.html#photos" data-close>Photos</a>
+      <a href="index.html#contact" data-close>Contact</a>
+    </nav>
+
+    <div class="drawer-cta">
+      <a class="btn btn-primary" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer">
+        Join on Strava <span class="arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
+        Facebook Group <span class="arrow">↗</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html#top" aria-label="Wellness Warriors home">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#guidelines">Guidelines</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="index.html#events">Events</a>
+        <a href="index.html#photos">Photos</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="pill" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer" title="Strava">
+          <span class="dot"></span> Strava
+        </a>
+        <a class="pill" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer" title="Facebook">
+          <span class="dot dot2"></span> Facebook
+        </a>
+        <button class="icon-btn burger" id="drawerOpen" aria-label="Open menu">
+          <span class="icon-burger"><span></span></span>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="icon-sun"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          class="hero-img"
+          src="marathon-running-light-morning-people-260nw-2448695941.jpg?auto=format&fit=crop&w=2400&q=80"
+          alt=""
+          loading="eager"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-left reveal">
+          <div class="chips">
+            <span class="chip"><span class="chip-icon">📅</span> Race calendar</span>
+            <span class="chip"><span class="chip-icon">🏁</span> Half + Full</span>
+            <span class="chip"><span class="chip-icon">🤝</span> Leader-led</span>
+          </div>
+
+          <h1 class="hero-title">
+            Events & Races
+          </h1>
+
+          <p class="hero-subtitle">
+            Here’s what the team is running next. Each race has a Wellness Warriors race leader —
+            reach out to coordinate carpools, hotels, shakeouts, and meet-up spots.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#eventsTable">View races <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="index.html#contact">General questions <span class="arrow">↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal" style="--d: 120ms">
+          <div class="glass card">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">How it works</div>
+                <div class="card-title">Race leader</div>
+              </div>
+            </div>
+
+            <div class="guides" style="gap:12px">
+              <div class="guide">
+                <div class="g-ic">🧭</div>
+                <div>
+                  <div class="g-title">Planning</div>
+                  <div class="g-sub">Meetup spots, logistics, and course tips.</div>
+                </div>
+              </div>
+              <div class="guide">
+                <div class="g-ic">📣</div>
+                <div>
+                  <div class="g-title">Communication</div>
+                  <div class="g-sub">Group chat + pre-race reminders.</div>
+                </div>
+              </div>
+              <div class="guide">
+                <div class="g-ic">🫶</div>
+                <div>
+                  <div class="g-title">Support</div>
+                  <div class="g-sub">Cheer squads and post-race hangs.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="btn btn-soft" href="index.html#events">Back to homepage</a>
+              <a class="btn btn-soft" href="#eventsTable">See races</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events table -->
+    <section id="eventsTable" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Race list</div>
+          <h2>Upcoming races</h2>
+          <p>
+            Click a race name for the official website. Click a leader to email them.
+          </p>
+        </div>
+
+        <div class="glass card reveal">
+          <div class="card-top">
+            <div>
+              <div class="card-kicker">2026</div>
+              <div class="card-title">Wellness Warriors race calendar</div>
+            </div>
+            <span class="badge">Live</span>
+          </div>
+
+          <div style="overflow:auto">
+            <table class="table" style="width:100%; border-collapse:separate; border-spacing:0 10px">
+              <thead>
+                <tr style="text-align:left">
+                  <th style="padding:10px 12px">Race name</th>
+                  <th style="padding:10px 12px">Distance</th>
+                  <th style="padding:10px 12px">Date</th>
+                  <th style="padding:10px 12px">Location</th>
+                  <th style="padding:10px 12px">Wellness Warriors race leader</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="glass">
+                  <td style="padding:10px 12px">
+                    <strong>
+                      <a href="https://www.chicago13point1.com" target="_blank" rel="noreferrer">
+                        Bank of America Half Marathon 13.1
+                      </a>
+                    </strong>
+                  </td>
+                  <td style="padding:10px 12px">13.1 mi</td>
+                  <td style="padding:10px 12px">Sun, Jun 7, 2026</td>
+                  <td style="padding:10px 12px">Garfield Park • Chicago, IL</td>
+                  <td style="padding:10px 12px">
+                    <a href="mailto:wellnesswarriorschicago@gmail.com?subject=Chicago%20Half%20Marathon%20-%20Wellness%20Warriors%20Meetup">
+                      Ananda
+                    </a>
+                  </td>
+                </tr>
+
+                <tr class="glass">
+                  <td style="padding:10px 12px">
+                    <strong>
+                      <a href="https://www.chicagomarathon.com/" target="_blank" rel="noreferrer">
+                        Bank of America Chicago Marathon
+                      </a>
+                    </strong>
+                  </td>
+                  <td style="padding:10px 12px">26.2 mi</td>
+                  <td style="padding:10px 12px">Sun, Oct 11, 2026</td>
+                  <td style="padding:10px 12px">Grant Park • Chicago, IL</td>
+                  <td style="padding:10px 12px">
+                    <a href="mailto:wellnesswarriorschicago@gmail.com?subject=Chicago%20Marathon%20-%20Wellness%20Warriors%20Meetup">
+                      Veera
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-actions" style="margin-top:10px">
+            <a class="btn btn-primary" href="index.html#contact">Volunteer as a race leader <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="index.html#events">Back to homepage <span class="arrow">↗</span></a>
+          </div>
+        </div>
+
+        <footer class="footer" style="margin-top:22px">
+          <div class="footer-left">
+            <img src="logo.jpeg" alt="Wellness Warriors logo" class="footer-logo" onerror="this.style.display='none'">
+            <div>
+              <div class="footer-name">Wellness Warriors</div>
+              <div class="footer-tag">Run • Recover • Repeat</div>
+            </div>
+          </div>
+          <div class="footer-right">
+            <a href="https://strava.app.link/ikZjfp1b8Yb" target="_blank" rel="noreferrer">Strava</a>
+            <a href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">Facebook</a>
+            <span class="sep">·</span>
+            <span>© <span id="year"></span></span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
