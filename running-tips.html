@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Running Tips — Wellness Warriors</title>
+  <meta name="description" content="Beginner-friendly running guide covering training, cadence, heart rate, fueling, recovery, strength, pacing, gear, and race preparation." />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .tips-grid { display: grid; gap: 18px; }
+    details.acc > summary {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      list-style: none;
+    }
+    details.acc > summary::-webkit-details-marker { display: none; }
+    .acc-left { display: flex; align-items: center; gap: 14px; }
+    .acc-ic {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.12);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .acc-body {
+      padding: 20px;
+      margin-top: 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      line-height: 1.65;
+    }
+    .acc-body h3 { margin-top: 0; }
+    .acc-body p { margin: 10px 0; }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .check input { margin-top: 4px; }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== Header (matches index.html exactly, plus Running Tips link) ===== -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html" aria-label="Wellness Warriors home">
+      <img src="logo.jpeg" alt="Wellness Warriors logo" class="brand-logo" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <div class="brand-kicker">Running Group</div>
+        <div class="brand-name">Wellness Warriors</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#guidelines">Guidelines</a>
+      <a href="index.html#schedule">Schedule</a>
+      <a href="index.html#training">Training</a>
+      <a href="running-tips.html" class="active">Running Tips</a>
+      <a href="events.html">Events</a>
+      <a href="index.html#photos">Photos</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="pill" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer">
+        <span class="dot"></span> Strava
+      </a>
+      <a class="pill" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
+        <span class="dot dot2"></span> Facebook
+      </a>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-sun"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker">Beginner-friendly guide</div>
+      <h1>Running Tips — Everything you need to know to to turn your training and race from good to great!</h1>
+    </div>
+
+    <div class="tips-grid">
+
+      <!-- TRAINING TYPES -->
+      <details class="glass card acc" open>
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">🏃</div>
+            <strong>Training strategies by run type</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <p>
+            Running improvement doesn’t come from pushing hard every day.
+            It comes from doing the right type of run at the right effort.
+          </p>
+
+          <p><strong>Easy runs</strong> should feel slow and relaxed.
+            You should be able to talk in full sentences.
+            These runs build your aerobic system and protect you from injury.</p>
+
+          <p><strong>Recovery runs</strong> are even easier than easy.
+            Their only goal is to help you feel better and recover from harder workouts.</p>
+
+          <p><strong>Long runs</strong> train endurance and mental patience.
+            They should feel controlled, not heroic.
+            Practice fueling and hydration here.</p>
+
+          <p><strong>Speed workouts</strong> improve efficiency and leg turnover.
+            They should feel challenging but controlled, never like an all-out sprint.</p>
+
+          <p><strong>Tempo runs</strong> teach you how to stay uncomfortable without panicking.
+            This skill is essential on race day.</p>
+
+          <p><strong>Hill workouts</strong> naturally improve strength and running form.</p>
+        </div>
+      </details>
+
+      <!-- CADENCE / HR -->
+      <details class="glass card acc">
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">⌚</div>
+            <strong>Pacing, cadence, stride length & heart rate</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <h3>Pacing</h3>
+          <p>
+            Pace is simply how fast you’re running.
+            Beginners often start too fast and slow down later.
+            Good pacing feels almost too easy at the start.
+          </p>
+
+          <h3>Cadence</h3>
+          <p>
+            Cadence is how many steps you take per minute.
+            A slightly quicker cadence usually means shorter steps and less impact.
+            Focus on light, quick steps — not chasing a specific number.
+          </p>
+
+          <h3>Stride length</h3>
+          <p>
+            Stride length is how far each step travels.
+            Overstriding (reaching too far forward) often causes injuries.
+            Speed should come from pushing back, not reaching forward.
+          </p>
+
+          <h3>Heart rate</h3>
+          <p>
+            Heart rate shows internal effort.
+            On easy runs, your heart rate should stay relatively low.
+            If heart rate climbs, slow down — even if the pace feels slow.
+          </p>
+        </div>
+      </details>
+
+      <!-- FUEL -->
+      <details class="glass card acc">
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">🥤</div>
+            <strong>Nutrition & hydration</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <p>
+            Food is fuel. Under-fueling often feels like bad fitness.
+            Carbohydrates are your body’s main energy source for running.
+          </p>
+
+          <p>
+            Fuel longer runs before, during, and after.
+            Practice race fueling during training so nothing is new on race day.
+          </p>
+        </div>
+      </details>
+
+      <!-- RECOVERY -->
+      <details class="glass card acc">
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">🧘</div>
+            <strong>Recovery & mobility</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <p>
+            Recovery is when fitness actually improves.
+            Sleep, nutrition, and consistency matter more than any recovery gadget.
+          </p>
+        </div>
+      </details>
+
+      <!-- STRENGTH -->
+      <details class="glass card acc">
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">🏋️</div>
+            <strong>Strength training & plyometrics</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <p>
+            Strength training improves durability and reduces injury risk.
+            Plyometrics improve efficiency — keep them short and controlled.
+          </p>
+        </div>
+      </details>
+
+      <!-- GEAR -->
+      <details class="glass card acc">
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">👟</div>
+            <strong>Running gear & shoes</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <p>
+            Choose comfort and consistency over hype.
+            Never try new shoes or gear on race day.
+          </p>
+        </div>
+      </details>
+
+      <!-- RACE WEEK -->
+      <details class="glass card acc">
+        <summary>
+          <div class="acc-left">
+            <div class="acc-ic">🏁</div>
+            <strong>Race week checklist</strong>
+          </div>
+          <span>▾</span>
+        </summary>
+        <div class="acc-body">
+          <p>
+            Race week is about arriving rested and confident.
+            You cannot gain fitness — only protect it.
+          </p>
+
+          <div class="checklist">
+            <div class="check"><input type="checkbox"><label>Taper respected — no extra miles</label></div>
+            <div class="check"><input type="checkbox"><label>Shoes, socks, and outfit tested</label></div>
+            <div class="check"><input type="checkbox"><label>Fuel and hydration plan practiced</label></div>
+            <div class="check"><input type="checkbox"><label>Race pace and backup goals set</label></div>
+            <div class="check"><input type="checkbox"><label>Sleep and hydration prioritized</label></div>
+            <div class="check"><input type="checkbox"><label>Trust the training</label></div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
