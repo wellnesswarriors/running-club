@@ -4,287 +4,1176 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>Running Tips — Wellness Warriors</title>
-  <meta name="description" content="Beginner-friendly running guide covering training, cadence, heart rate, fueling, recovery, strength, pacing, gear, and race preparation." />
+  <title>Wellness Warriors — Running Tips</title>
+  <meta name="description" content="Goal-based running playbooks: beginner to race-ready. Training, pacing, fueling, recovery, strength, and race prep — step by step." />
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    .tips-grid { display: grid; gap: 18px; }
-    details.acc > summary {
+    /* Page-specific polish; relies on your shared style.css for core components */
+    :root{
+      --glass-1: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.04);
+      --bd-1: rgba(255,255,255,0.12);
+      --bd-2: rgba(255,255,255,0.08);
+      --txt-dim: rgba(255,255,255,0.78);
+      --txt-more-dim: rgba(255,255,255,0.68);
+    }
+
+    /* ===== Running Tips hero: image background + compact height ===== */
+    .hero.hero-tips{
+      position: relative;
+      overflow: hidden;
+    }
+    .hero.hero-tips .hero-media{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+    .hero.hero-tips .hero-img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .hero.hero-tips .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(80% 80% at 20% 25%, rgba(0,0,0,0.20), rgba(0,0,0,0.55)),
+        linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.55));
+    }
+
+    /* Keep hero from being "too tall" */
+    .hero.hero-tips .hero-inner{
+      padding-top: 42px;
+      padding-bottom: 36px;
+    }
+    @media (min-width: 900px){
+      .hero.hero-tips .hero-inner{
+        padding-top: 52px;
+        padding-bottom: 44px;
+      }
+    }
+    .hero.hero-tips .hero-subtitle{ max-width: 72ch; }
+
+    /* ===== Goal selector ===== */
+    .goal-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .goal-card{
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--glass-1);
+      border: 1px solid var(--bd-1);
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: left;
+      position: relative;
+      overflow:hidden;
+    }
+    .goal-card::before{
+      content:"";
+      position:absolute;
+      inset:-40% -40%;
+      background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.12), transparent 55%);
+      opacity: 0;
+      transition: opacity .2s ease;
+      pointer-events:none;
+    }
+    .goal-card:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.16);
+    }
+    .goal-card:hover::before{ opacity: 1; }
+
+    .goal-top{ display:flex; gap: 12px; align-items:flex-start; }
+    .goal-ic{
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      display:grid; place-items:center;
+      font-size: 22px;
+      flex: 0 0 auto;
+    }
+    .goal-title{ margin:0; font-size: 1.05rem; letter-spacing: -0.01em; }
+    .goal-desc{ margin:6px 0 0; color: var(--txt-more-dim); line-height: 1.5; }
+    .goal-hint{
+      margin-top: 12px;
+      display:flex; align-items:center; gap: 8px;
+      color: rgba(255,255,255,0.70);
+      font-size: 0.92rem;
+    }
+    .kbd{
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ===== Playbooks accordion ===== */
+    .tips-grid{ display:grid; gap: 16px; margin-top: 18px; }
+
+    details.acc > summary{
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       padding: 18px 20px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      list-style: none;
+      background: var(--glass-1);
+      border: 1px solid rgba(255,255,255,0.10);
+      list-style:none;
+      transition: background .16s ease, transform .16s ease, border-color .16s ease;
     }
-    details.acc > summary::-webkit-details-marker { display: none; }
-    .acc-left { display: flex; align-items: center; gap: 14px; }
-    .acc-ic {
+    details.acc > summary:hover{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.14);
+      transform: translateY(-1px);
+    }
+    details.acc > summary::-webkit-details-marker{ display:none; }
+
+    .sum-left{ display:flex; align-items:center; gap: 12px; }
+    .sum-ic{
       width: 40px; height: 40px;
-      display: grid; place-items: center;
+      display:grid; place-items:center;
       border-radius: 12px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
       font-size: 18px;
-      flex-shrink: 0;
+      flex-shrink:0;
     }
-    .acc-body {
+    .sum-title{ display:flex; flex-direction:column; gap:2px; }
+    .sum-title strong{ font-size: 1.05rem; letter-spacing:-0.01em; }
+    .sum-sub{ color: rgba(255,255,255,0.72); font-size: 0.92rem; }
+
+    .chev{ transition: transform .18s ease; opacity: 0.8; }
+    details[open] .chev{ transform: rotate(180deg); }
+
+    .acc-body{
       padding: 20px;
       margin-top: 12px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      line-height: 1.65;
+      background: var(--glass-2);
+      border: 1px solid var(--bd-2);
+      line-height: 1.7;
+      animation: fadeUp .22s ease both;
     }
-    .acc-body h3 { margin-top: 0; }
-    .acc-body p { margin: 10px 0; }
+    @keyframes fadeUp{
+      from{ opacity: 0; transform: translateY(6px); }
+      to{ opacity: 1; transform: translateY(0); }
+    }
 
-    .checklist {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
     }
-    .check {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
+    .step-card{
+      padding: 14px 14px 12px;
       border-radius: 14px;
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
     }
-    .check input { margin-top: 4px; }
-  </style>
+    .step-card h4{
+      margin: 0 0 6px;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .step-card p{ margin: 0; color: rgba(255,255,255,0.78); }
+    .step-card ul{ margin: 10px 0 0 18px; color: rgba(255,255,255,0.80); }
+
+    .callout{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .callout strong{ display:block; margin-bottom: 6px; }
+    .callout p{ margin: 0; color: rgba(255,255,255,0.80); }
+
+    .template{
+      margin-top: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(255,255,255,0.18);
+    }
+    .template-title{ font-weight: 650; margin-bottom: 6px; }
+    .template ul{ margin: 8px 0 0 18px; color: rgba(255,255,255,0.80); }
+
+    .checklist{ display:grid; gap: 10px; margin-top: 12px; }
+    .check{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .check input{ margin: 0; flex: 0 0 auto; }
+    .check label{ line-height: 1.5; color: rgba(255,255,255,0.86); cursor: pointer; }
+
+    .divider{ height: 1px; background: rgba(255,255,255,0.10); margin: 16px 0; }
+
+    @media (prefers-reduced-motion: reduce){
+      .acc-body{ animation: none; }
+      details.acc > summary, .goal-card, .chev{ transition:none !important; }
+    }
+  
+    .race-checklist{
+      margin: 10px 0 0 18px;
+      padding: 0;
+      list-style: none;
+      color: rgba(255,255,255,0.86);
+    }
+    .race-checklist li{
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    
+
+    .checkmark{
+      color: #4ade80; /* green */
+      font-weight: 700;
+      margin-right: 6px;
+    }
+</style>
 </head>
 
 <body>
+  <!-- Ambient background (same structure as events.html) -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <div class="noise"></div>
+  </div>
 
-<!-- ===== Header (matches index.html exactly, plus Running Tips link) ===== -->
-<header class="topbar">
-  <div class="container topbar-inner">
-    <a class="brand" href="index.html" aria-label="Wellness Warriors home">
-      <img src="logo.jpeg" alt="Wellness Warriors logo" class="brand-logo" onerror="this.style.display='none'">
-      <div class="brand-text">
-        <div class="brand-kicker">Running Group</div>
-        <div class="brand-name">Wellness Warriors</div>
+  <!-- Mobile drawer (same structure as events.html) -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <div class="brand-mini">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
+        </div>
       </div>
-    </a>
-
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html#about">About</a>
-      <a href="index.html#guidelines">Guidelines</a>
-      <a href="index.html#schedule">Schedule</a>
-      <a href="index.html#training">Training</a>
-      <a href="running-tips.html" class="active">Running Tips</a>
-      <a href="events.html">Events</a>
-      <a href="index.html#photos">Photos</a>
-    </nav>
-
-    <div class="topbar-actions">
-      <a class="pill" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer">
-        <span class="dot"></span> Strava
-      </a>
-      <a class="pill" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
-        <span class="dot dot2"></span> Facebook
-      </a>
-      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-        <span class="icon-sun"></span>
+      <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+        <span class="icon-x"></span>
       </button>
     </div>
-  </div>
-</header>
 
-<main class="section">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-kicker">Beginner-friendly guide</div>
-      <h1>Running Tips — Everything you need to know to to turn your training and race from good to great!</h1>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="index.html#about" data-close>About</a>
+      <a href="index.html#guidelines" data-close>Guidelines</a>
+      <a href="index.html#schedule" data-close>Schedule</a>
+      <a href="index.html#training" data-close>Training</a>
+      <a href="running-tips.html" data-close>Running Tips</a>
+      <a href="events.html" data-close>Events</a>
+      <a href="index.html#photos" data-close>Photos</a>
+      <a href="index.html#contact" data-close>Contact</a>
+    </nav>
+
+    <div class="drawer-cta">
+      <a class="btn btn-primary" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer">
+        Join on Strava <span class="arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">
+        Facebook Group <span class="arrow">↗</span>
+      </a>
     </div>
+  </aside>
 
-    <div class="tips-grid">
-
-      <!-- TRAINING TYPES -->
-      <details class="glass card acc" open>
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">🏃</div>
-            <strong>Training strategies by run type</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <p>
-            Running improvement doesn’t come from pushing hard every day.
-            It comes from doing the right type of run at the right effort.
-          </p>
-
-          <p><strong>Easy runs</strong> should feel slow and relaxed.
-            You should be able to talk in full sentences.
-            These runs build your aerobic system and protect you from injury.</p>
-
-          <p><strong>Recovery runs</strong> are even easier than easy.
-            Their only goal is to help you feel better and recover from harder workouts.</p>
-
-          <p><strong>Long runs</strong> train endurance and mental patience.
-            They should feel controlled, not heroic.
-            Practice fueling and hydration here.</p>
-
-          <p><strong>Speed workouts</strong> improve efficiency and leg turnover.
-            They should feel challenging but controlled, never like an all-out sprint.</p>
-
-          <p><strong>Tempo runs</strong> teach you how to stay uncomfortable without panicking.
-            This skill is essential on race day.</p>
-
-          <p><strong>Hill workouts</strong> naturally improve strength and running form.</p>
+  <!-- Top bar (same menu items/order as events.html) -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html#top" aria-label="Wellness Warriors home">
+        <img src="logo.jpeg" alt="Wellness Warriors logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="brand-kicker">Running Group</div>
+          <div class="brand-name">Wellness Warriors</div>
         </div>
-      </details>
+      </a>
 
-      <!-- CADENCE / HR -->
-      <details class="glass card acc">
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">⌚</div>
-            <strong>Pacing, cadence, stride length & heart rate</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <h3>Pacing</h3>
-          <p>
-            Pace is simply how fast you’re running.
-            Beginners often start too fast and slow down later.
-            Good pacing feels almost too easy at the start.
-          </p>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#guidelines">Guidelines</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="index.html#training">Training</a>
+        <a href="running-tips.html" class="active">Running Tips</a>
+        <a href="events.html">Events</a>
+        <a href="index.html#photos">Photos</a>
+      </nav>
 
-          <h3>Cadence</h3>
-          <p>
-            Cadence is how many steps you take per minute.
-            A slightly quicker cadence usually means shorter steps and less impact.
-            Focus on light, quick steps — not chasing a specific number.
-          </p>
-
-          <h3>Stride length</h3>
-          <p>
-            Stride length is how far each step travels.
-            Overstriding (reaching too far forward) often causes injuries.
-            Speed should come from pushing back, not reaching forward.
-          </p>
-
-          <h3>Heart rate</h3>
-          <p>
-            Heart rate shows internal effort.
-            On easy runs, your heart rate should stay relatively low.
-            If heart rate climbs, slow down — even if the pace feels slow.
-          </p>
-        </div>
-      </details>
-
-      <!-- FUEL -->
-      <details class="glass card acc">
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">🥤</div>
-            <strong>Nutrition & hydration</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <p>
-            Food is fuel. Under-fueling often feels like bad fitness.
-            Carbohydrates are your body’s main energy source for running.
-          </p>
-
-          <p>
-            Fuel longer runs before, during, and after.
-            Practice race fueling during training so nothing is new on race day.
-          </p>
-        </div>
-      </details>
-
-      <!-- RECOVERY -->
-      <details class="glass card acc">
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">🧘</div>
-            <strong>Recovery & mobility</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <p>
-            Recovery is when fitness actually improves.
-            Sleep, nutrition, and consistency matter more than any recovery gadget.
-          </p>
-        </div>
-      </details>
-
-      <!-- STRENGTH -->
-      <details class="glass card acc">
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">🏋️</div>
-            <strong>Strength training & plyometrics</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <p>
-            Strength training improves durability and reduces injury risk.
-            Plyometrics improve efficiency — keep them short and controlled.
-          </p>
-        </div>
-      </details>
-
-      <!-- GEAR -->
-      <details class="glass card acc">
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">👟</div>
-            <strong>Running gear & shoes</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <p>
-            Choose comfort and consistency over hype.
-            Never try new shoes or gear on race day.
-          </p>
-        </div>
-      </details>
-
-      <!-- RACE WEEK -->
-      <details class="glass card acc">
-        <summary>
-          <div class="acc-left">
-            <div class="acc-ic">🏁</div>
-            <strong>Race week checklist</strong>
-          </div>
-          <span>▾</span>
-        </summary>
-        <div class="acc-body">
-          <p>
-            Race week is about arriving rested and confident.
-            You cannot gain fitness — only protect it.
-          </p>
-
-          <div class="checklist">
-            <div class="check"><input type="checkbox"><label>Taper respected — no extra miles</label></div>
-            <div class="check"><input type="checkbox"><label>Shoes, socks, and outfit tested</label></div>
-            <div class="check"><input type="checkbox"><label>Fuel and hydration plan practiced</label></div>
-            <div class="check"><input type="checkbox"><label>Race pace and backup goals set</label></div>
-            <div class="check"><input type="checkbox"><label>Sleep and hydration prioritized</label></div>
-            <div class="check"><input type="checkbox"><label>Trust the training</label></div>
-          </div>
-        </div>
-      </details>
-
+      <div class="topbar-actions">
+        <a class="pill" href="https://strava.com/clubs/wellness-warriors" target="_blank" rel="noreferrer" title="Strava">
+          <span class="dot"></span> Strava
+        </a>
+        <a class="pill" href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer" title="Facebook">
+          <span class="dot dot2"></span> Facebook
+        </a>
+        <button class="icon-btn burger" id="drawerOpen" aria-label="Open menu">
+          <span class="icon-burger"><span></span></span>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="icon-sun"></span>
+        </button>
+      </div>
     </div>
-  </div>
-</main>
+  </header>
 
-<script src="script.js"></script>
+  <main id="top">
+    <!-- Hero with background image -->
+    <section class="hero hero-tips">
+      <div class="hero-media" aria-hidden="true">
+        <!-- Use a local image if you have one; this matches the events page approach -->
+        <img class="hero-img" src="marathon-running-light-morning-people-260nw-2448695941.jpg" alt="" loading="eager" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-left reveal">
+          <div class="chips">
+            <span class="chip"><span class="chip-icon">🧭</span> Goal-based</span>
+            <span class="chip"><span class="chip-icon">🧠</span> Step-by-step</span>
+            <span class="chip"><span class="chip-icon">🏁</span> Race-ready</span>
+          </div>
+
+          <h1 class="hero-title">Running Playbooks</h1>
+
+          <p class="hero-subtitle">
+            Choose a goal and follow the plan. These playbooks focus on consistency, smart effort, simple strength,
+            and race-day confidence — without burning out.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#goals">Choose a goal <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="#pb-fundamentals">Universal fundamentals <span class="arrow">↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal" style="--d: 120ms">
+          <div class="glass card">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">How to use</div>
+                <div class="card-title">Pick → practice → progress</div>
+              </div>
+            </div>
+
+            <div class="guides" style="gap:12px">
+              <div class="guide">
+                <div class="g-ic">📍</div>
+                <div>
+                  <div class="g-title">Choose a goal</div>
+                  <div class="g-sub">Tap a category and follow the steps.</div>
+                </div>
+              </div>
+              <div class="guide">
+                <div class="g-ic">🧪</div>
+                <div>
+                  <div class="g-title">Train by effort</div>
+                  <div class="g-sub">Easy days easy. One quality day max.</div>
+                </div>
+              </div>
+              <div class="guide">
+                <div class="g-ic">✅</div>
+                <div>
+                  <div class="g-title">Stay consistent</div>
+                  <div class="g-sub">Small weeks done repeatedly beat big weeks.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="btn btn-soft" href="#goals">Jump to goals</a>
+              <a class="btn btn-soft" href="#pb-race">Race checklist</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section section-alt" id="goals">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Start here</div>
+          <h2>Choose your goal</h2>
+          <p>Tap a goal card to open the matching playbook below. Keyboard: <span class="kbd">Enter</span> or <span class="kbd">Space</span>.</p>
+        </div>
+
+        <div class="goal-grid" role="list">
+
+<button class="goal-card" type="button" data-target="#run-glossary" role="listitem" aria-label="Open Running glossary">
+            <div class="goal-top">
+              <div class="goal-ic">📚</div>
+              <div>
+                <p class="goal-title"><strong>Running Glossary</strong></p>
+                <p class="goal-desc">Quick definitions for run types, effort, cadence, heart rate zones, VO₂ max, and more.</p>
+              </div>
+            </div>
+            <div class="goal-hint">Jump to glossary <span class="kbd">Enter</span></div>
+          </button>
+
+<button class="goal-card" type="button" data-target="#pb-beginner" role="listitem" aria-label="Open New to Running playbook">
+            <div class="goal-top">
+              <div class="goal-ic">🌱</div>
+              <div>
+                <p class="goal-title"><strong>New to Running</strong></p>
+                <p class="goal-desc">Build consistency safely, learn “easy”, and finish runs feeling proud — not wrecked.</p>
+              </div>
+            </div>
+            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
+          </button>
+
+<button class="goal-card" type="button" data-target="#pb-endurance" role="listitem" aria-label="Open Build Endurance playbook">
+            <div class="goal-top">
+              <div class="goal-ic">🧱</div>
+              <div>
+                <p class="goal-title"><strong>Build Endurance</strong></p>
+                <p class="goal-desc">Run longer with less fatigue using smart long runs, pacing, and basic fueling habits.</p>
+              </div>
+            </div>
+            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
+          </button>
+
+<button class="goal-card" type="button" data-target="#pb-pace" role="listitem" aria-label="Open Improve Pace playbook">
+            <div class="goal-top">
+              <div class="goal-ic">⚡</div>
+              <div>
+                <p class="goal-title"><strong>Improve Pace</strong></p>
+                <p class="goal-desc">Get faster without burnout by protecting easy days and adding one quality session weekly.</p>
+              </div>
+            </div>
+            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
+          </button>
+
+<button class="goal-card" type="button" data-target="#pb-race" role="listitem" aria-label="Open Train for a Race playbook">
+            <div class="goal-top">
+              <div class="goal-ic">🏁</div>
+              <div>
+                <p class="goal-title"><strong>Train for a Race</strong></p>
+                <p class="goal-desc">Turn training into a race plan: pacing, taper, fueling practice, and a calm checklist.</p>
+              </div>
+            </div>
+            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
+          </button>
+
+<button class="goal-card" type="button" data-target="#pb-healthy" role="listitem" aria-label="Open Stay Healthy playbook">
+            <div class="goal-top">
+              <div class="goal-ic">🛡️</div>
+              <div>
+                <p class="goal-title"><strong>Stay Healthy & Injury-Free</strong></p>
+                <p class="goal-desc">Train for longevity with recovery rules, strength essentials, and smart progressions.</p>
+              </div>
+            </div>
+            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
+          </button>
+
+</div>
+
+        
+        <!-- RUNNING GLOSSARY -->
+        <div class="divider"></div>
+
+        <section id="run-glossary" class="glass card" style="margin-top:18px">
+          <div class="acc-body" style="margin-top:0">
+            <h3 style="margin:0 0 10px;">Running Glossary</h3>
+            <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:90ch;">
+              Use this as your quick-reference for common running terms and training language.
+              You’ll see these words throughout the playbooks — especially when you start adding variety beyond easy runs.
+              
+            </p>
+
+            <div class="grid-2">
+
+              <div class="step-card">
+                <h4>🟢 Easy run</h4>
+                <p>Comfortable, conversational running that builds aerobic fitness and consistency.</p>
+                <ul>
+                  <li>Effort: RPE 3–4</li>
+                  <li>You could keep going if needed</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🔵 Recovery run</h4>
+                <p>Very easy running used to promote recovery between harder sessions.</p>
+                <ul>
+                  <li>Slower than normal easy pace</li>
+                  <li>Short and gentle</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🧱 Long run</h4>
+                <p>Your longest run of the week, focused on endurance rather than speed.</p>
+                <ul>
+                  <li>Easy, steady effort</li>
+                  <li>Gradually increased over time</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>⚡ Tempo run</h4>
+                <p>Sustained “comfortably hard” running that improves pace control and stamina.</p>
+                <ul>
+                  <li>Effort: RPE 6–7</li>
+                  <li>Often 10–40 minutes total</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🔥 Interval training</h4>
+                <p>Short, faster repeats with easy recovery between efforts.</p>
+                <ul>
+                  <li>Examples: 400m–3 min repeats</li>
+                  <li>Improves speed and VO₂ max</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🎯 Fartlek</h4>
+                <p>Unstructured speed play mixed into an easy run.</p>
+                <ul>
+                  <li>Based on feel or landmarks</li>
+                  <li>Low stress, high fun</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>⛰️ Hill sprints</h4>
+                <p>Very short uphill efforts focused on power and form.</p>
+                <ul>
+                  <li>10–30 seconds uphill</li>
+                  <li>Full walk-down recovery</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🎚️ RPE (Rate of Perceived Exertion)</h4>
+                <p>How hard a run feels on a 1–10 scale.</p>
+                <ul>
+                  <li><strong>3–4:</strong> easy / conversational</li>
+                  <li><strong>6–7:</strong> tempo / “comfortably hard”</li>
+                  <li><strong>8:</strong> hard intervals / short repeats</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🫀 Heart rate (HR)</h4>
+                <p>Beats per minute. Useful for keeping easy days easy and learning pacing.</p>
+                <ul>
+                  <li>HR can drift up during long runs, heat, stress, hills, or dehydration.</li>
+                  <li>Use HR as a guide — not a grade.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🫀 Heart rate zones</h4>
+                <p>Training “zones” are ranges of effort, usually based on max HR or threshold.</p>
+                <ul>
+                  <li><strong>Easy / aerobic:</strong> comfortable, sustainable (often Zones 1–2)</li>
+                  <li><strong>Tempo / threshold:</strong> steady hard effort (often Zone 3–4)</li>
+                  <li><strong>VO₂ / hard:</strong> short repeats (often Zone 4–5)</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>👣 Cadence</h4>
+                <p>Steps per minute (SPM). Higher cadence often means shorter, quicker steps.</p>
+                <ul>
+                  <li>Don’t chase a “magic number.” Focus on <strong>light, quick steps</strong>.</li>
+                  <li>If you’re overstriding, a slightly quicker cadence can help.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>📏 Stride length</h4>
+                <p>How far you travel per step. Too long can cause overstriding and extra impact.</p>
+                <ul>
+                  <li>Speed comes from cadence + a natural stride (not reaching).</li>
+                  <li>Think “push the ground back” vs. “reach forward.”</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🧪 VO₂ max</h4>
+                <p>Roughly, your body’s ability to use oxygen at high intensity.</p>
+                <ul>
+                  <li>Improved with intervals, hills, and consistent aerobic training.</li>
+                  <li>Wearable estimates can be noisy — trends over time matter most.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🏁 Tempo / Threshold</h4>
+                <p>“Sustainably hard” effort where you can work, but not sprint.</p>
+                <ul>
+                  <li>Often feels like your fastest controlled pace for 20–40 minutes.</li>
+                  <li>Great for improving race pace comfort.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>✨ Strides</h4>
+                <p>Short (15–25 sec) relaxed accelerations — fast but smooth, not all-out.</p>
+                <ul>
+                  <li>Used after easy runs or in warmups.</li>
+                  <li>Builds coordination and “snap” with low fatigue.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>📉 Negative split</h4>
+                <p>Running the second half faster than the first half (controlled start, stronger finish).</p>
+                <ul>
+                  <li>Works for long runs and races.</li>
+                  <li>The “secret” is starting easier than you want to.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🧊 Warmup & cooldown</h4>
+                <p>Prep your body before faster work and help it recover afterward.</p>
+                <ul>
+                  <li><strong>Warmup:</strong> 8–12 min easy + 2–4 strides</li>
+                  <li><strong>Cooldown:</strong> 5–10 min easy + light mobility</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>📈 Down week</h4>
+                <p>A planned easier week every 3–5 weeks so your body can absorb training.</p>
+                <ul>
+                  <li>Reduce volume a bit (or reduce intensity).</li>
+                  <li>Often leads to better consistency and fewer niggles.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🧠 Overstriding</h4>
+                <p>Reaching too far in front with your foot strike, often increasing braking and impact.</p>
+                <ul>
+                  <li>Fix with: slightly quicker cadence + “land under you” cue.</li>
+                  <li>Run tall, stay relaxed, avoid reaching.</li>
+                </ul>
+              </div>
+
+              <div class="step-card">
+                <h4>🥤 Fueling</h4>
+                <p>Carbs + fluids used to support longer runs and races.</p>
+                <ul>
+                  <li>Many runners benefit from carbs on <strong>60+ min</strong> runs.</li>
+                  <li>Practice in training — don’t experiment on race day.</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="callout" style="margin-top:14px">
+              <strong>Quick tip:</strong>
+              <p>
+                If you’re new or returning, master <strong>easy</strong> + <strong>consistency</strong> first.
+                Add variety later — one change at a time.
+              </p>
+            </div>
+          </div>
+        </section>
+
+<div class="tips-grid">
+
+          <!-- BEGINNER -->
+          <details class="glass card acc" id="pb-beginner" open>
+            <summary>
+              <div class="sum-left">
+                <div class="sum-ic">🌱</div>
+                <div class="sum-title">
+                  <strong>New to Running — Starter Playbook</strong>
+                  <div class="sum-sub">Consistency first. Easy effort. Build the habit and protect your body.</div>
+                </div>
+              </div>
+              <span class="chev">▾</span>
+            </summary>
+
+            <div class="acc-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+                The goal in your first weeks isn’t speed — it’s <strong>showing up consistently</strong> and building confidence.
+                If you finish most runs feeling like you could do a little more, you’re doing it right.
+              </p>
+
+              <div class="grid-2">
+                <div class="step-card">
+                  <h4>✅ Step 1: Pick a frequency you can repeat</h4>
+                  <ul>
+                    <li><strong>2–3 runs/week</strong> is perfect to start.</li>
+                    <li>Rest days are training — they’re where your body adapts.</li>
+                    <li>Walk breaks are normal. Try: <strong>2 min run / 1 min walk</strong>.</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🎚️ Step 2: Learn “easy” (talk test + RPE)</h4>
+                  <ul>
+                    <li><strong>Talk test:</strong> you can speak in full sentences.</li>
+                    <li><strong>RPE 3–4/10:</strong> relaxed, controlled breathing.</li>
+                    <li>If you’re unsure, slow down. Easy is the “secret sauce.”</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🧩 Step 3: What your week should look like</h4>
+                  <p>Keep it simple. Most runs are easy. One run is “a little longer.”</p>
+                  <div class="template">
+                    <div class="template-title">2 days/week template</div>
+                    <ul>
+                      <li>Day 1: Easy run (20–30 min)</li>
+                      <li>Day 2: Easy + slightly longer (25–40 min)</li>
+                    </ul>
+                  </div>
+                  <div class="template">
+                    <div class="template-title">3 days/week template</div>
+                    <ul>
+                      <li>Day 1: Easy</li>
+                      <li>Day 2: Easy (or run/walk)</li>
+                      <li>Day 3: Easy long-ish run</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-card">
+                  <h4>🚫 Step 4: Avoid the common traps</h4>
+                  <ul>
+                    <li>Starting too fast (then hating the run later)</li>
+                    <li>Trying to “make up” missed days by overdoing one day</li>
+                    <li>Comparing pace — effort matters more than speed early on</li>
+                    <li>Running through pain that changes your form</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>This week: the win is consistency.</strong>
+                <p>Do 2–3 easy runs. Finish feeling capable. If pain is sharp or changes your stride, stop and walk. <a href="#run-glossary">Glossary</a></p>
+              </div>
+            </div>
+          </details>
+<!-- ENDURANCE -->
+<details class="glass card acc" id="pb-endurance">
+            <summary>
+              <div class="sum-left">
+                <div class="sum-ic">🧱</div>
+                <div class="sum-title">
+                  <strong>Build Endurance — Run Longer</strong>
+                  <div class="sum-sub">Long runs + patient pacing + basic fueling = durable endurance.</div>
+                </div>
+              </div>
+              <span class="chev">▾</span>
+            </summary>
+
+            <div class="acc-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+                Endurance improves when you stack weeks of controlled effort.
+                Your long run should feel <strong>steady and manageable</strong>, not like a weekly survival test.
+              </p>
+
+              <div class="grid-2">
+                <div class="step-card">
+                  <h4>📅 Step 1: Structure your week</h4>
+                  <ul>
+                    <li><strong>Most runs easy</strong> (talk test). This protects you from overtraining.</li>
+                    <li>Include <strong>one long run</strong> and 1–2 short easy runs.</li>
+                    <li>Optional: 1 day cross-training (walk, bike, strength).</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🕒 Step 2: Grow the long run safely</h4>
+                  <ul>
+                    <li>Add time gradually: <strong>+5 to +10 minutes</strong> every 1–2 weeks.</li>
+                    <li>Every 3–4 weeks, do an easier week (slightly shorter long run).</li>
+                    <li>Finish feeling like you could do 5–10 more minutes.</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🥤 Step 3: Fueling rules that work</h4>
+                  <ul>
+                    <li>Runs <strong>under ~60 min</strong>: water is usually enough.</li>
+                    <li><strong>60+ min</strong>: bring carbs (gel/chews/sports drink).</li>
+                    <li>Practice in training so race day isn’t a science experiment.</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🎛️ Step 4: Effort control (the endurance cheat code)</h4>
+                  <ul>
+                    <li>If breathing gets choppy, slow down (or add a short walk).</li>
+                    <li>Heart rate drift happens — manage it with pace, not ego.</li>
+                    <li>Start easier than you think. You can always finish stronger.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>Try this long run:</strong>
+                <p>First half “too easy,” second half steady. If you’re still conversational at the end, you nailed it.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- PACE -->
+          <details class="glass card acc" id="pb-pace">
+            <summary>
+              <div class="sum-left">
+                <div class="sum-ic">⚡</div>
+                <div class="sum-title">
+                  <strong>Improve Pace — Get Faster Without Burnout</strong>
+                  <div class="sum-sub">One quality workout per week + easy days done right.</div>
+                </div>
+              </div>
+              <span class="chev">▾</span>
+            </summary>
+
+            <div class="acc-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+                Most runners get stuck because every run becomes “medium-hard.” <a href="#run-glossary">Glossary</a>
+                Speed improves when you protect easy days, then hit one focused workout with good recovery.
+              </p>
+
+              <div class="grid-2">
+                <div class="step-card">
+                  <h4>🟢 Step 1: Keep easy runs easy</h4>
+                  <ul>
+                    <li>Easy runs build aerobic fitness and let you recover.</li>
+                    <li>Talk-test pace. No proving yourself on Tuesday.</li>
+                    <li>Easy means you can run again tomorrow if needed.</li>
+                  </ul>
+                
+                <div class="step-card">
+                  <h4>🦘 Step 5: Plyometrics (optional but powerful)</h4>
+                  <ul>
+                    <li>Short, explosive movements to improve speed and running economy</li>
+                    <li>Examples: pogo hops, skipping, bounds, box jumps</li>
+                    <li>Keep reps low and quality high (2–3 sets)</li>
+                    <li>Do after an easy run or before speed work</li>
+                  </ul>
+                </div>
+</div>
+
+                <div class="step-card">
+                  <h4>🔥 Step 2: Add ONE quality session</h4>
+                  <p>Pick one style, once per week:</p>
+                  <ul>
+                    <li><strong><a href="#run-types">Tempo</a>:</strong> 15–20 min “comfortably hard” (RPE 6–7)</li>
+                    <li><strong><a href="#run-types">Intervals</a>:</strong> 6×2 min quick / 2 min easy</li>
+                    <li><strong><a href="#run-types">Hills</a>:</strong> 6×20–30 sec uphill (walk down)</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🧠 Step 3: Warm-up like a pro (simple)</h4>
+                  <ul>
+                    <li>8–12 min easy jog</li>
+                    <li>2–4 short strides (15–20 sec faster but relaxed)</li>
+                    <li>Then start the workout — you’ll feel smoother and safer</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🦶 Step 4: Cadence + form cues (don’t obsess)</h4>
+                  <ul>
+                    <li>Think “<strong>light, quick steps</strong>” not “big reach.”</li>
+                    <li>Run tall, shoulders relaxed, elbows back.</li>
+                    <li>Speed comes from pushing the ground back, not overstriding.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>This week’s fast win:</strong>
+                <p>Do 6×2 minutes quick with equal easy recovery. Finish feeling strong, not destroyed.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- RACE -->
+          <details class="glass card acc" id="pb-race">
+            <summary>
+              <div class="sum-left">
+                <div class="sum-ic">🏁</div>
+                <div class="sum-title">
+                  <strong>Train for a Race — Confidence Playbook</strong>
+                  <div class="sum-sub">Pacing plan + taper + fuel practice + checklist that keeps you calm.</div>
+                </div>
+              </div>
+              <span class="chev">▾</span>
+            </summary>
+
+            <div class="acc-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+                Race week is about arriving rested and ready. You can’t gain fitness in the final days —
+                you can only protect it and show up confident.
+              </p>
+
+              <div class="grid-2">
+                <div class="step-card">
+                  <h4>🧾 Step 1: Set a pacing plan (A / B / C)</h4>
+                  <ul>
+                    <li><strong>A goal:</strong> best-case if conditions are good</li>
+                    <li><strong>B goal:</strong> strong, realistic, still exciting</li>
+                    <li><strong>C goal:</strong> finish proud even if it’s a tough day</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🍌 Step 2: Nothing new on race day</h4>
+                  <ul>
+                    <li>Same shoes, socks, and fuel you used in training</li>
+                    <li>Practice pre-run snack timing at least once</li>
+                    <li>If you’re unsure, keep it simple</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <h3 style="margin:0 0 10px;">Race week checklist</h3>
+              
+<ul class="race-checklist">
+  <li><span class="checkmark">✔</span> <strong>Taper respected:</strong> no “bonus miles” to calm nerves.</li>
+  <li><span class="checkmark">✔</span> <strong>Outfit tested:</strong> shoes, socks, top, bottoms (and weather plan).</li>
+  <li><span class="checkmark">✔</span> <strong>Fuel plan practiced:</strong> you know what you’ll take and when.</li>
+  <li><span class="checkmark">✔</span> <strong>Start line plan:</strong> arrive early, bathroom plan, warm-up plan.</li>
+  <li><span class="checkmark">✔</span> <strong>Pacing plan ready:</strong> first mile controlled, finish strong.</li>
+  <li><span class="checkmark">✔</span> <strong>Sleep & hydration:</strong> prioritize the basics all week.</li>
+</ul>
+
+
+<div class="callout">
+                <strong>Race-day reminder:</strong>
+                <p>Start easier than you think. The best races feel controlled early and brave late.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- HEALTHY -->
+          <details class="glass card acc" id="pb-healthy">
+            <summary>
+              <div class="sum-left">
+                <div class="sum-ic">🛡️</div>
+                <div class="sum-title">
+                  <strong>Stay Healthy & Injury-Free — Longevity Playbook</strong>
+                  <div class="sum-sub">Recovery rules + strength essentials + smart progressions.</div>
+                </div>
+              </div>
+              <span class="chev">▾</span>
+            </summary>
+
+            <div class="acc-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+                The fastest way to improve is to stay in the game. Durability comes from smart training load,
+                recovery basics, and a little strength done consistently.
+              </p>
+
+              <div class="grid-2">
+                <div class="step-card">
+                  <h4>🚦 Step 1: Pain rules (simple + useful)</h4>
+                  <ul>
+                    <li><strong>OK:</strong> general soreness, mild stiffness that improves as you warm up</li>
+                    <li><strong>Not OK:</strong> sharp pain, limping, pain that changes your form</li>
+                    <li>If pain worsens each run, take a rest day (or two) and reassess</li>
+                  </ul>
+                
+                
+
+
+</div>
+
+                <div class="step-card">
+                  <h4>🧠 Step 2: Recovery hierarchy</h4>
+                  <ul>
+                    <li><strong>Sleep</strong> is #1 (it’s legal performance enhancement)</li>
+                    <li><strong>Fuel + hydration</strong> support adaptation</li>
+                    <li><strong>Easy days easy</strong> so hard days can be effective</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>🏋️ Step 3: Strength basics (2×/week)</h4>
+                  <p>Keep it short and repeatable:</p>
+                  <ul>
+                    <li>Squats or sit-to-stands (2–3 sets)</li>
+                    <li>Glute bridges (2–3 sets)</li>
+                    <li>Calf raises (2–3 sets)</li>
+                    <li>Plank or dead bug (2–3 sets)</li>
+                  </ul>
+                </div>
+
+                <div class="step-card">
+                  <h4>📈 Step 4: Load management (the big secret)</h4>
+                  <ul>
+                    <li>Don’t increase <strong>speed and distance</strong> in the same week.</li>
+                    <li>Build volume first, then add intensity.</li>
+                    <li>Every few weeks, do a down week to absorb training.</li>
+                  </ul>
+                </div>
+              
+                <div class="step-card">
+                  <h4>🛠️ Step 5: Recovery tools (use as needed)</h4>
+                  <ul>
+                    <li><strong>Foam rolling:</strong> improves circulation and reduces stiffness</li>
+                    <li><strong>Massage / massage gun:</strong> helps tight or overworked muscles</li>
+                    <li><strong>Stretching:</strong> gentle, after runs or before bed</li>
+                    <li><strong>Ice baths / cold exposure:</strong> optional for soreness management</li>
+                    <li>Use these to support training — not to “fix” overload</li>
+                  </ul>
+                </div>
+
+
+</div>
+
+              <div class="callout">
+                <strong>Longevity move:</strong>
+                <p>If you’re tired, convert today into an easy run or a walk. That choice protects your next 2 weeks.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- FUNDAMENTALS -->
+          <details class="glass card acc" id="pb-fundamentals">
+            <summary>
+              <div class="sum-left">
+                <div class="sum-ic">🧰</div>
+                <div class="sum-title">
+                  <strong>Universal Fundamentals — Works for Every Goal</strong>
+                  <div class="sum-sub">Effort levels, warmups, fueling basics, and how to progress safely.</div>
+                </div>
+              </div>
+              <span class="chev">▾</span>
+            </summary>
+
+            <div class="acc-body">
+              <div class="grid-2">
+                <div class="step-card">
+                  <h4>🎚️ Effort guide (RPE)</h4>
+<p style="margin:6px 0 0;color:rgba(255,255,255,0.78);"><a href="#run-glossary">See glossary</a> for how these efforts show up in workouts.</p>
+                  <ul>
+                    <li><strong>RPE 3–4:</strong> easy / conversational</li>
+                    <li><strong>RPE 5:</strong> steady / “I could hold this awhile”</li>
+                    <li><strong>RPE 6–7:</strong> tempo / comfortably hard</li>
+                    <li><strong>RPE 8:</strong> hard intervals / short repeats</li>
+                  </ul>
+                </div>
+                <div class="step-card">
+                  <h4>🧠 Warmup + cooldown (simple)</h4>
+                  <ul>
+                    <li><strong>Easy run:</strong> start slow for 5 minutes</li>
+                    <li><strong>Workout day:</strong> 10 min easy + 2–4 strides</li>
+                    <li><strong>Cooldown:</strong> 5–10 min easy + light mobility</li>
+                  </ul>
+                </div>
+                <div class="step-card">
+                  <h4>🥤 Hydration & fueling basics</h4>
+                  <ul>
+                    <li>Hot day? Bring fluids earlier than you think.</li>
+                    <li>60+ minutes? Consider carbs during the run.</li>
+                    <li>Post-run: water + carbs + protein is a great combo.</li>
+                  </ul>
+                </div>
+                <div class="step-card">
+                  <h4>📌 Progress rule of thumb</h4>
+                  <ul>
+                    <li>Prefer adding <strong>minutes</strong> over chasing faster pace.</li>
+                    <li>Most runs easy; 1 “hard” day max early on.</li>
+                    <li>Consistency beats hero workouts.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </details>
+
+        </div>
+
+        <footer class="footer" style="margin-top:22px">
+          <div class="footer-left">
+            <img src="logo.jpeg" alt="Wellness Warriors logo" class="footer-logo" onerror="this.style.display='none'">
+            <div>
+              <div class="footer-name">Wellness Warriors</div>
+              <div class="footer-tag">Run • Recover • Repeat</div>
+            </div>
+          </div>
+          <div class="footer-right">
+            <a href="https://strava.app.link/ikZjfp1b8Yb" target="_blank" rel="noreferrer">Strava</a>
+            <a href="https://facebook.com/groups/wellnesswarriors" target="_blank" rel="noreferrer">Facebook</a>
+            <span class="sep">·</span>
+            <span>© <span id="year"></span></span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Goal cards: open matching playbook + smooth scroll into view
+    (function () {
+      const cards = document.querySelectorAll(".goal-card");
+      const allDetails = document.querySelectorAll("details.acc");
+
+      
+      function openTarget(selector) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+
+        // If the target is a playbook accordion (DETAILS), close others and open it.
+        if (el.tagName === "DETAILS") {
+          allDetails.forEach(d => { if (d !== el) d.open = false; });
+          el.open = true;
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          const summary = el.querySelector("summary");
+          if (summary) summary.focus({ preventScroll: true });
+          return;
+        }
+
+        // Otherwise, just scroll to the section/card.
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        const focusable = el.querySelector("a, button, h3, h2, summary");
+        if (focusable && focusable.focus) focusable.focus({ preventScroll: true });
+      }
+
+
+      cards.forEach(card => {
+        card.addEventListener("click", () => openTarget(card.getAttribute("data-target")));
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openTarget(card.getAttribute("data-target"));
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
