@@ -69,252 +69,345 @@
 <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Page-specific polish; relies on your shared style.css for core components */
-    :root{
-      --glass-1: rgba(255,255,255,0.06);
-      --glass-2: rgba(255,255,255,0.04);
-      --bd-1: rgba(255,255,255,0.12);
-      --bd-2: rgba(255,255,255,0.08);
-      --txt-dim: rgba(255,255,255,0.78);
-      --txt-more-dim: rgba(255,255,255,0.68);
-    }
+  /* Bold, athletic "everyday training grit" makeover (page-specific) */
+  :root{
+    --bg: #07080b;
+    --panel: rgba(255,255,255,.06);
+    --panel2: rgba(255,255,255,.04);
+    --stroke: rgba(255,255,255,.10);
+    --stroke2: rgba(255,255,255,.14);
+    --text: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.72);
+    --muted2: rgba(255,255,255,.62);
+    --accent: #ff3b30; /* gritty red */
+    --accent2: #fbbf24; /* warm highlight */
+    --radius: 18px;
+    --radius2: 24px;
+    --shadow: 0 14px 40px rgba(0,0,0,.45);
+  }
 
-    
-    /* ===== Running Tips hero: image background + compact height ===== */
-    .hero.hero-tips{
-      position: relative;
-      overflow: hidden;
-    }
-    .hero.hero-tips .hero-media{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-    }
-    .hero.hero-tips .hero-img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      transform: scale(1.04);
-      filter: saturate(1.05) contrast(1.05);
-    }
-    .hero.hero-tips .hero-overlay{
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(80% 80% at 20% 25%, rgba(0,0,0,0.20), rgba(0,0,0,0.55)),
-        linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.55));
-    }
+  /* De-noise background elements a bit (keep your shared ambient) */
+  .bg-ambient .blob{ opacity:.55; filter: saturate(.9) contrast(1.05); }
+  .bg-ambient .grid{ opacity:.22; }
+  .bg-ambient .noise{ opacity:.06; }
 
+  /* HERO: simple, strong, image-led */
+  .hero.hero-tips{
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .hero.hero-tips .hero-media{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+  }
+  .hero.hero-tips .hero-img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    transform: scale(1.06);
+    filter: saturate(1.02) contrast(1.1) brightness(.92);
+  }
+  .hero.hero-tips .hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 30%, rgba(0,0,0,.78) 100%),
+      radial-gradient(60% 70% at 20% 20%, rgba(255,59,48,.20), transparent 55%),
+      radial-gradient(60% 70% at 80% 0%, rgba(251,191,36,.16), transparent 55%);
+  }
+  .hero.hero-tips .hero-inner{
+    padding-top: 72px;
+    padding-bottom: 64px;
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 26px;
+    align-items: end;
+  }
+  @media (max-width: 900px){
     .hero.hero-tips .hero-inner{
-      padding-top: 42px;
-      padding-bottom: 36px;
+      grid-template-columns: 1fr;
+      padding-top: 62px;
+      padding-bottom: 50px;
     }
-    @media (min-width: 900px){
-      .hero.hero-tips .hero-inner{
-        padding-top: 52px;
-        padding-bottom: 44px;
-      }
-    }
-    .hero.hero-tips .hero-subtitle{ max-width: 72ch; }
+  }
 
-    
+  .hero-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.86);
+    font-size: .85rem;
+  }
+  .hero-kicker .bar{
+    width: 34px; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 999px;
+  }
+  .hero-title{
+    margin: 12px 0 10px;
+    font-size: clamp(2.2rem, 4.6vw, 3.7rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  .hero-subtitle{
+    margin: 0;
+    max-width: 70ch;
+    color: rgba(255,255,255,.82);
+    font-size: 1.06rem;
+    line-height: 1.6;
+  }
+  .hero-cta{
+    margin-top: 18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+  }
 
-    /* ===== Goal selector ===== */
-    .goal-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
+  /* Athlete stat strip (right column) */
+  .stat-card{
+    border-radius: var(--radius2);
+    background: rgba(0,0,0,.38);
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: var(--shadow);
+    padding: 18px 18px;
+    backdrop-filter: blur(8px);
+  }
+  .stat-row{
+    display:flex;
+    justify-content:space-between;
+    gap: 14px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .stat-row:first-child{ border-top: 0; padding-top: 0; }
+  .stat-k{ color: rgba(255,255,255,.72); font-size: .92rem; }
+  .stat-v{ font-weight: 750; letter-spacing: -.01em; }
+  .stat-badge{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.06);
+    color: rgba(255,255,255,.86);
+    font-size: .92rem;
+  }
+  .stat-badge .dot{
+    width:8px; height:8px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(255,59,48,.18);
+  }
 
-    .goal-card{
-      padding: 18px;
-      border-radius: 18px;
-      background: var(--glass-1);
-      border: 1px solid var(--bd-1);
-      transition: transform .16s ease, background .16s ease, border-color .16s ease;
-      cursor: pointer;
-      text-align: left;
-      position: relative;
-      overflow:hidden;
-    }
-    .goal-card::before{
-      content:"";
-      position:absolute;
-      inset:-40% -40%;
-      background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.12), transparent 55%);
-      opacity: 0;
-      transition: opacity .2s ease;
-      pointer-events:none;
-    }
-    .goal-card:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.16);
-    }
-    .goal-card:hover::before{ opacity: 1; }
+  /* Section headers: bold + airy */
+  .section-head h2{
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .section-kicker{
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 750;
+  }
 
-    .goal-top{ display:flex; gap: 12px; align-items:flex-start; }
-    .goal-ic{
-      width: 46px; height: 46px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-      display:grid; place-items:center;
-      font-size: 22px;
-      flex: 0 0 auto;
-    }
-    .goal-title{ margin:0; font-size: 1.05rem; letter-spacing: -0.01em; }
-    .goal-desc{ margin:6px 0 0; color: var(--txt-more-dim); line-height: 1.5; }
-    .goal-hint{
-      margin-top: 12px;
-      display:flex; align-items:center; gap: 8px;
-      color: rgba(255,255,255,0.70);
-      font-size: 0.92rem;
-    }
-    .kbd{
-      padding: 2px 8px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.85);
-    }
+  /* Goal selector: image tiles */
+  .goal-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .goal-tile{
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 150px;
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 12px 28px rgba(0,0,0,.35);
+    transform: translateZ(0);
+    text-decoration:none;
+    color: var(--text);
+    background: #0b0c10;
+    display:flex;
+    align-items:flex-end;
+    padding: 16px;
+  }
+  .goal-tile::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: var(--img);
+      background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+    filter: saturate(1.05) contrast(1.08) brightness(.9);
+  }
+  .goal-tile::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.82));
+  }
+  .goal-tile > *{ position: relative; z-index: 1; }
+  .goal-tile:hover{ border-color: rgba(255,255,255,.18); transform: translateY(-2px); }
+  .goal-tile:focus-visible{ outline: 3px solid rgba(255,59,48,.45); outline-offset: 3px; }
 
-    /* ===== Playbooks accordion ===== */
-    .tips-grid{ display:grid; gap: 16px; margin-top: 18px; }
+  .goal-meta .goal-title{
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+  .goal-meta .goal-desc{
+    margin: 6px 0 0;
+    color: rgba(255,255,255,.74);
+    line-height: 1.45;
+    font-size: .95rem;
+    max-width: 44ch;
+  }
+  .goal-chip{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.10);
+    color: rgba(255,255,255,.86);
+    font-size: .86rem;
+    letter-spacing: .04em;
+  }
+  .goal-chip .mini{
+    width:8px; height:8px; border-radius:50%;
+    background: var(--accent2);
+    box-shadow: 0 0 0 4px rgba(251,191,36,.12);
+  }
 
-    details.acc > summary{
-      cursor:pointer;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding: 18px 20px;
-      border-radius: 16px;
-      background: var(--glass-1);
-      border: 1px solid rgba(255,255,255,0.10);
-      list-style:none;
-      transition: background .16s ease, transform .16s ease, border-color .16s ease;
-    }
-    details.acc > summary:hover{
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.14);
-      transform: translateY(-1px);
-    }
-    details.acc > summary::-webkit-details-marker{ display:none; }
+  /* Tile spans */
+  .span-6{ grid-column: span 6; }
+  .span-4{ grid-column: span 4; }
+  .span-8{ grid-column: span 8; }
+  @media (max-width: 950px){
+    .span-6,.span-4,.span-8{ grid-column: span 12; }
+    .goal-tile{ min-height: 140px; }
+  }
 
-    .sum-left{ display:flex; align-items:center; gap: 12px; }
-    .sum-ic{
-      width: 40px; height: 40px;
-      display:grid; place-items:center;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-      font-size: 18px;
-      flex-shrink:0;
-    }
-    .sum-title{ display:flex; flex-direction:column; gap:2px; }
-    .sum-title strong{ font-size: 1.05rem; letter-spacing:-0.01em; }
-    .sum-sub{ color: rgba(255,255,255,0.72); font-size: 0.92rem; }
+  /* Playbooks: sections instead of accordion */
+  .tips-grid{ display:grid; gap: 18px; margin-top: 22px; }
+  .playbook{
+    border-radius: var(--radius2);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+    box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  }
+  .pb-hero{
+    position: relative;
+    padding: 18px 18px 16px;
+    background: rgba(0,0,0,.35);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .pb-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: var(--img);
+      background-size: cover;
+    background-position:center;
+    filter: saturate(1.05) contrast(1.08) brightness(.78);
+    opacity: .55;
+  }
+  .pb-hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,.40), rgba(0,0,0,.78));
+  }
+  .pb-hero > *{ position: relative; z-index:1; }
+  .pb-top{
+    display:flex;
+    align-items:flex-start;
+    gap: 12px;
+  }
+  .pb-ic{
+    width: 44px; height: 44px;
+    border-radius: 14px;
+    display:grid; place-items:center;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    font-size: 20px;
+    flex: 0 0 auto;
+  }
+  .pb-title{
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .pb-sub{
+    margin: 6px 0 0;
+    color: rgba(255,255,255,.74);
+    line-height: 1.5;
+    max-width: 90ch;
+  }
+  .pb-body{
+    padding: 18px;
+  }
 
-    .chev{ transition: transform .18s ease; opacity: 0.8; }
-    details[open] .chev{ transform: rotate(180deg); }
+  /* Step cards: flatter + athletic */
+  .grid-2{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .step-card{
+    padding: 14px 14px 12px;
+    border-radius: 16px;
+    background: rgba(0,0,0,.28);
+    border: 1px solid rgba(255,255,255,.10);
+  }
+  .step-card h4{
+    margin: 0 0 6px;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    text-transform: none;
+  }
+  .step-card p{ margin: 0; color: rgba(255,255,255,0.78); }
+  .step-card ul{ margin: 10px 0 0 18px; color: rgba(255,255,255,0.80); }
 
-    .acc-body{
-      padding: 20px;
-      margin-top: 12px;
-      border-radius: 16px;
-      background: var(--glass-2);
-      border: 1px solid var(--bd-2);
-      line-height: 1.7;
-      animation: fadeUp .22s ease both;
-    }
-    @keyframes fadeUp{
-      from{ opacity: 0; transform: translateY(6px); }
-      to{ opacity: 1; transform: translateY(0); }
-    }
+  .callout{
+    margin-top: 14px;
+    padding: 14px 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .callout strong{ display:block; margin-bottom: 6px; text-transform: uppercase; letter-spacing:.06em; }
+  .callout p{ margin: 0; color: rgba(255,255,255,0.84); }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 12px;
-    }
-    .step-card{
-      padding: 14px 14px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-    .step-card h4{
-      margin: 0 0 6px;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
-      display:flex;
-      align-items:center;
-      gap: 8px;
-    }
-    .step-card p{ margin: 0; color: rgba(255,255,255,0.78); }
-    .step-card ul{ margin: 10px 0 0 18px; color: rgba(255,255,255,0.80); }
+  .divider{ height: 1px; background: rgba(255,255,255,0.10); margin: 18px 0; }
 
-    .callout{
-      margin-top: 14px;
-      padding: 14px 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .callout strong{ display:block; margin-bottom: 6px; }
-    .callout p{ margin: 0; color: rgba(255,255,255,0.80); }
+  /* Make the glossary/gear/apps cards match new vibe */
+  .glass.card{ background: rgba(255,255,255,.03) !important; border-color: rgba(255,255,255,.10) !important; }
+  .acc-body{ background: transparent !important; border: 0 !important; padding: 18px !important; margin-top:0 !important; }
 
-    .template{
-      margin-top: 10px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px dashed rgba(255,255,255,0.18);
-    }
-    .template-title{ font-weight: 650; margin-bottom: 6px; }
-    .template ul{ margin: 8px 0 0 18px; color: rgba(255,255,255,0.80); }
-
-    .checklist{ display:grid; gap: 10px; margin-top: 12px; }
-    .check{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-    .check input{ margin: 0; flex: 0 0 auto; }
-    .check label{ line-height: 1.5; color: rgba(255,255,255,0.86); cursor: pointer; }
-
-    .divider{ height: 1px; background: rgba(255,255,255,0.10); margin: 16px 0; }
-
-    @media (prefers-reduced-motion: reduce){
-      .acc-body{ animation: none; }
-      details.acc > summary, .goal-card, .chev{ transition:none !important; }
-    }
-  
-    .race-checklist{
-      margin: 10px 0 0 18px;
-      padding: 0;
-      list-style: none;
-      color: rgba(255,255,255,0.86);
-    }
-    .race-checklist li{
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-    
-
-    .checkmark{
-      color: #4ade80; /* green */
-      font-weight: 700;
-      margin-right: 6px;
-    }
+  /* Accessibility + reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .goal-tile{ transition:none !important; }
+  }
 </style>
 </head>
 
@@ -404,78 +497,48 @@
 
   <main id="top">
     <!-- Hero with background image -->
-    <section class="hero hero-tips">
-      
-      <div class="hero-media" aria-hidden="true">
-        <img class="hero-img" src="marathon-running-light-morning-people-260nw-2448695941.jpg"
-             alt="Group of runners training outdoors in the early morning"
-             loading="eager" />
-        <div class="hero-overlay"></div>
+<section class="hero hero-tips">
+  <div class="hero-media" aria-hidden="true">
+    <img class="hero-img" src="marathon-running-light-morning-people-260nw-2448695941.jpg"
+         alt="Group of runners training outdoors in the early morning"
+         loading="eager" />
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-kicker"><span class="bar"></span> Everyday training grit</div>
+      <h1 class="hero-title">Train. Recover. Repeat.</h1>
+      <p class="hero-subtitle">
+        Practical running playbooks for real runners — beginners to race prep.
+        Built for consistency, smart effort, and durable fitness.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#goals">Choose your training goal <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#pb-fundamentals">Universal fundamentals <span class="arrow">↗</span></a>
       </div>
-</div>
+    </div>
 
-      <div class="container hero-inner">
-        <div class="hero-left reveal">
-          <div class="chips">
-            <span class="chip"><span class="chip-icon">🧭</span> Goal-based</span>
-            <span class="chip"><span class="chip-icon">🧠</span> Step-by-step</span>
-            <span class="chip"><span class="chip-icon">🏁</span> Race-ready</span>
-          </div>
-
-          <h1 class="hero-title">Running Playbooks</h1>
-
-          <p class="hero-subtitle">
-            Choose a goal and follow the plan. These playbooks focus on consistency, smart effort, simple strength,
-            and race-day confidence — without burning out.
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#goals">Choose a goal <span class="arrow">→</span></a>
-            <a class="btn btn-ghost" href="#pb-fundamentals">Universal fundamentals <span class="arrow">↗</span></a>
-          </div>
+    <div class="hero-right reveal" style="--d: 120ms">
+      <div class="stat-card">
+        <div class="stat-row">
+          <div class="stat-k">Easy days</div>
+          <div class="stat-v">Protected</div>
         </div>
-
-        <div class="hero-right reveal" style="--d: 120ms">
-          <div class="glass card">
-            <div class="card-top">
-              <div>
-                <div class="card-kicker">How to use</div>
-                <div class="card-title">Pick → practice → progress</div>
-              </div>
-            </div>
-
-            <div class="guides" style="gap:12px">
-              <div class="guide">
-                <div class="g-ic">📍</div>
-                <div>
-                  <div class="g-title">Choose a goal</div>
-                  <div class="g-sub">Tap a category and follow the steps.</div>
-                </div>
-              </div>
-              <div class="guide">
-                <div class="g-ic">🧪</div>
-                <div>
-                  <div class="g-title">Train by effort</div>
-                  <div class="g-sub">Easy days easy. One quality day max.</div>
-                </div>
-              </div>
-              <div class="guide">
-                <div class="g-ic">✅</div>
-                <div>
-                  <div class="g-title">Stay consistent</div>
-                  <div class="g-sub">Small weeks done repeatedly beat big weeks.</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-actions">
-              <a class="btn btn-soft" href="#goals">Jump to goals</a>
-              <a class="btn btn-soft" href="#pb-race">Race checklist</a>
-            </div>
-          </div>
+        <div class="stat-row">
+          <div class="stat-k">Quality days</div>
+          <div class="stat-v">1 / week</div>
         </div>
+        <div class="stat-row">
+          <div class="stat-k">Long run</div>
+          <div class="stat-v">Earned</div>
+        </div>
+        <div class="stat-badge"><span class="dot"></span> Consistency beats hero weeks</div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Content -->
     <section class="section section-alt" id="goals">
@@ -486,101 +549,64 @@
           <p>Tap a goal card to open the matching playbook below. Keyboard: <span class="kbd">Enter</span> or <span class="kbd">Space</span>.</p>
         </div>
 
-        <div class="goal-grid" role="list">
+        <div class="goal-grid" aria-label="Choose your goal">
+  <a class="goal-tile span-6" href="#pb-beginner" style="--img:url('https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> Build the habit</div>
+      <p class="goal-title"><strong>New to Running</strong></p>
+      <p class="goal-desc">Start easy, stay consistent, finish runs feeling capable — not wrecked.</p>
+    </div>
+  </a>
 
-<button class="goal-card" type="button" data-target="#run-glossary" role="listitem" aria-label="Open Running glossary">
-            <div class="goal-top">
-              <div class="goal-ic">📚</div>
-              <div>
-                <p class="goal-title"><strong>Running Glossary</strong></p>
-                <p class="goal-desc">Quick definitions for run types, effort, cadence, heart rate zones, VO₂ max, and more.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to glossary <span class="kbd">Enter</span></div>
-          </button>
+  <a class="goal-tile span-6" href="#pb-endurance" style="--img:url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> Durable miles</div>
+      <p class="goal-title"><strong>Build Endurance</strong></p>
+      <p class="goal-desc">Long-run confidence with patient pacing, smart progression, and fueling basics.</p>
+    </div>
+  </a>
 
-<button class="goal-card" type="button" data-target="#running-gear" role="listitem" aria-label="Open Running gear guide">
-            <div class="goal-top">
-              <div class="goal-ic">👟</div>
-              <div>
-                <p class="goal-title"><strong>Running Gear Guide</strong></p>
-                <p class="goal-desc">Shoes, socks, vests, watches, HR monitors, lights, and the little things that help.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to gear <span class="kbd">Enter</span></div>
-          </button>
+  <a class="goal-tile span-4" href="#pb-pace" style="--img:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> One quality day</div>
+      <p class="goal-title"><strong>Improve Pace</strong></p>
+      <p class="goal-desc">Get faster by protecting easy days and earning your hard efforts.</p>
+    </div>
+  </a>
 
-<button class="goal-card" type="button" data-target="#running-apps" role="listitem" aria-label="Open Running apps guide">
-            <div class="goal-top">
-              <div class="goal-ic">📱</div>
-              <div>
-                <p class="goal-title"><strong>Running Apps</strong></p>
-                <p class="goal-desc">Strava and other apps for tracking, training plans, routes, and motivation.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to apps <span class="kbd">Enter</span></div>
-          </button>
+  <a class="goal-tile span-4" href="#pb-race" style="--img:url('https://images.unsplash.com/photo-1520975682031-a5b5945e3a85?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> Calm race week</div>
+      <p class="goal-title"><strong>Train for a Race</strong></p>
+      <p class="goal-desc">Pacing, taper, fuel practice, and a checklist that keeps you steady.</p>
+    </div>
+  </a>
 
+  <a class="goal-tile span-4" href="#pb-healthy" style="--img:url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> Stay in the game</div>
+      <p class="goal-title"><strong>Stay Healthy</strong></p>
+      <p class="goal-desc">Recovery rules, strength essentials, and smart progressions for longevity.</p>
+    </div>
+  </a>
 
+  <a class="goal-tile span-6" href="#run-glossary" style="--img:url('https://images.unsplash.com/photo-1520975682031-bf9b7d5005c1?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> Quick reference</div>
+      <p class="goal-title"><strong>Running Glossary</strong></p>
+      <p class="goal-desc">Effort, run types, cadence, heart rate zones, VO₂ max — decoded.</p>
+    </div>
+  </a>
 
-<button class="goal-card" type="button" data-target="#pb-beginner" role="listitem" aria-label="Open New to Running playbook">
-            <div class="goal-top">
-              <div class="goal-ic">🌱</div>
-              <div>
-                <p class="goal-title"><strong>New to Running</strong></p>
-                <p class="goal-desc">Build consistency safely, learn “easy”, and finish runs feeling proud — not wrecked.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
-          </button>
-
-<button class="goal-card" type="button" data-target="#pb-endurance" role="listitem" aria-label="Open Build Endurance playbook">
-            <div class="goal-top">
-              <div class="goal-ic">🧱</div>
-              <div>
-                <p class="goal-title"><strong>Build Endurance</strong></p>
-                <p class="goal-desc">Run longer with less fatigue using smart long runs, pacing, and basic fueling habits.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
-          </button>
-
-<button class="goal-card" type="button" data-target="#pb-pace" role="listitem" aria-label="Open Improve Pace playbook">
-            <div class="goal-top">
-              <div class="goal-ic">⚡</div>
-              <div>
-                <p class="goal-title"><strong>Improve Pace</strong></p>
-                <p class="goal-desc">Get faster without burnout by protecting easy days and adding one quality session weekly.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
-          </button>
-
-<button class="goal-card" type="button" data-target="#pb-race" role="listitem" aria-label="Open Train for a Race playbook">
-            <div class="goal-top">
-              <div class="goal-ic">🏁</div>
-              <div>
-                <p class="goal-title"><strong>Train for a Race</strong></p>
-                <p class="goal-desc">Turn training into a race plan: pacing, taper, fueling practice, and a calm checklist.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
-          </button>
-
-<button class="goal-card" type="button" data-target="#pb-healthy" role="listitem" aria-label="Open Stay Healthy playbook">
-            <div class="goal-top">
-              <div class="goal-ic">🛡️</div>
-              <div>
-                <p class="goal-title"><strong>Stay Healthy & Injury-Free</strong></p>
-                <p class="goal-desc">Train for longevity with recovery rules, strength essentials, and smart progressions.</p>
-              </div>
-            </div>
-            <div class="goal-hint">Jump to playbook <span class="kbd">Enter</span></div>
-          </button>
-
+  <a class="goal-tile span-6" href="#running-gear" style="--img:url('https://images.unsplash.com/photo-1526401485004-2aa7d8e7b5b4?auto=format&fit=crop&w=1600&q=70');">
+    <div class="goal-meta">
+      <div class="goal-chip"><span class="mini"></span> Comfort & safety</div>
+      <p class="goal-title"><strong>Gear & Apps</strong></p>
+      <p class="goal-desc">Shoes, socks, lights, hydration — plus Strava and training tools.</p>
+    </div>
+  </a>
 </div>
 
-        
         <!-- RUNNING GLOSSARY -->
         <div class="divider"></div>
 
@@ -980,22 +1006,18 @@
 <div class="tips-grid">
 
           <!-- BEGINNER -->
-          <details class="glass card acc" id="pb-beginner" open>
-            <summary>
-              <div class="sum-left">
-                <div class="sum-ic">🌱</div>
-                <div class="sum-title">
-                  <strong>New to Running — Starter Playbook</strong>
-                  <div class="sum-sub">Consistency first. Easy effort. Build the habit and protect your body.</div>
+          <section class="playbook" id="pb-beginner">
+            <div class="pb-hero" style="--img:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1800&q=70');">
+              <div class="pb-top">
+                <div class="pb-ic">🌱</div>
+                <div>
+                  <h3 class="pb-title">New to Running — Starter Playbook</h3>
+                  <p class="pb-sub">Consistency first. Easy effort. Build the habit and protect your body.</p>
                 </div>
               </div>
-              <span class="chev">▾</span>
-            </summary>
-
-            <div class="acc-body">
-              
-              <h2 style="margin:0 0 10px;">New to Running — Starter Playbook</h2>
-<p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+            </div>
+            <div class="pb-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
                 The goal in your first weeks isn’t speed — it’s <strong>showing up consistently</strong> and building confidence.
                 If you finish most runs feeling like you could do a little more, you’re doing it right.
               </p>
@@ -1055,24 +1077,20 @@
                 <p>Do 2–3 easy runs. Finish feeling capable. If pain is sharp or changes your stride, stop and walk. <a href="#run-glossary">Glossary</a></p>
               </div>
             </div>
-          </details>
+          </section>
 <!-- ENDURANCE -->
-<details class="glass card acc" id="pb-endurance">
-            <summary>
-              <div class="sum-left">
-                <div class="sum-ic">🧱</div>
-                <div class="sum-title">
-                  <strong>Build Endurance — Run Longer</strong>
-                  <div class="sum-sub">Long runs + patient pacing + basic fueling = durable endurance.</div>
+<section class="playbook" id="pb-endurance">
+            <div class="pb-hero" style="--img:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=70');">
+              <div class="pb-top">
+                <div class="pb-ic">🧱</div>
+                <div>
+                  <h3 class="pb-title">Build Endurance — Run Longer</h3>
+                  <p class="pb-sub">Long runs + patient pacing + basic fueling = durable endurance.</p>
                 </div>
               </div>
-              <span class="chev">▾</span>
-            </summary>
-
-            <div class="acc-body">
-              
-              <h2 style="margin:0 0 10px;">Build Endurance — Run Longer</h2>
-<p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+            </div>
+            <div class="pb-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
                 Endurance improves when you stack weeks of controlled effort.
                 Your long run should feel <strong>steady and manageable</strong>, not like a weekly survival test.
               </p>
@@ -1120,25 +1138,21 @@
                 <p>First half “too easy,” second half steady. If you’re still conversational at the end, you nailed it.</p>
               </div>
             </div>
-          </details>
+          </section>
 
           <!-- PACE -->
-          <details class="glass card acc" id="pb-pace">
-            <summary>
-              <div class="sum-left">
-                <div class="sum-ic">⚡</div>
-                <div class="sum-title">
-                  <strong>Improve Pace — Get Faster Without Burnout</strong>
-                  <div class="sum-sub">One quality workout per week + easy days done right.</div>
+          <section class="playbook" id="pb-pace">
+            <div class="pb-hero" style="--img:url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=1800&q=70');">
+              <div class="pb-top">
+                <div class="pb-ic">⚡</div>
+                <div>
+                  <h3 class="pb-title">Improve Pace — Get Faster Without Burnout</h3>
+                  <p class="pb-sub">One quality workout per week + easy days done right.</p>
                 </div>
               </div>
-              <span class="chev">▾</span>
-            </summary>
-
-            <div class="acc-body">
-              
-              <h2 style="margin:0 0 10px;">Improve Pace — Get Faster Without Burnout</h2>
-<p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+            </div>
+            <div class="pb-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
                 Most runners get stuck because every run becomes “medium-hard.” <a href="#run-glossary">Glossary</a>
                 Speed improves when you protect easy days, then hit one focused workout with good recovery.
               </p>
@@ -1197,25 +1211,21 @@
                 <p>Do 6×2 minutes quick with equal easy recovery. Finish feeling strong, not destroyed.</p>
               </div>
             </div>
-          </details>
+          </section>
 
           <!-- RACE -->
-          <details class="glass card acc" id="pb-race">
-            <summary>
-              <div class="sum-left">
-                <div class="sum-ic">🏁</div>
-                <div class="sum-title">
-                  <strong>Train for a Race — Confidence Playbook</strong>
-                  <div class="sum-sub">Pacing plan + taper + fuel practice + checklist that keeps you calm.</div>
+          <section class="playbook" id="pb-race">
+            <div class="pb-hero" style="--img:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=70');">
+              <div class="pb-top">
+                <div class="pb-ic">🏁</div>
+                <div>
+                  <h3 class="pb-title">Train for a Race — Confidence Playbook</h3>
+                  <p class="pb-sub">Pacing plan + taper + fuel practice + checklist that keeps you calm.</p>
                 </div>
               </div>
-              <span class="chev">▾</span>
-            </summary>
-
-            <div class="acc-body">
-              
-              <h2 style="margin:0 0 10px;">Train for a Race — Confidence Playbook</h2>
-<p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+            </div>
+            <div class="pb-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
                 Race week is about arriving rested and ready. You can’t gain fitness in the final days —
                 you can only protect it and show up confident.
               </p>
@@ -1259,25 +1269,21 @@
                 <p>Start easier than you think. The best races feel controlled early and brave late.</p>
               </div>
             </div>
-          </details>
+          </section>
 
           <!-- HEALTHY -->
-          <details class="glass card acc" id="pb-healthy">
-            <summary>
-              <div class="sum-left">
-                <div class="sum-ic">🛡️</div>
-                <div class="sum-title">
-                  <strong>Stay Healthy & Injury-Free — Longevity Playbook</strong>
-                  <div class="sum-sub">Recovery rules + strength essentials + smart progressions.</div>
+          <section class="playbook" id="pb-healthy">
+            <div class="pb-hero" style="--img:url('https://images.unsplash.com/photo-1549570652-97324981a6fd?auto=format&fit=crop&w=1800&q=70');">
+              <div class="pb-top">
+                <div class="pb-ic">🛡️</div>
+                <div>
+                  <h3 class="pb-title">Stay Healthy & Injury-Free — Longevity Playbook</h3>
+                  <p class="pb-sub">Recovery rules + strength essentials + smart progressions.</p>
                 </div>
               </div>
-              <span class="chev">▾</span>
-            </summary>
-
-            <div class="acc-body">
-              
-              <h2 style="margin:0 0 10px;">Stay Healthy & Injury-Free — Longevity Playbook</h2>
-<p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
+            </div>
+            <div class="pb-body">
+              <p style="margin-top:0;color:rgba(255,255,255,0.82);max-width:80ch;">
                 The fastest way to improve is to stay in the game. Durability comes from smart training load,
                 recovery basics, and a little strength done consistently.
               </p>
@@ -1344,25 +1350,21 @@
                 <p>If you’re tired, convert today into an easy run or a walk. That choice protects your next 2 weeks.</p>
               </div>
             </div>
-          </details>
+          </section>
 
           <!-- FUNDAMENTALS -->
-          <details class="glass card acc" id="pb-fundamentals">
-            <summary>
-              <div class="sum-left">
-                <div class="sum-ic">🧰</div>
-                <div class="sum-title">
-                  <strong>Universal Fundamentals — Works for Every Goal</strong>
-                  <div class="sum-sub">Effort levels, warmups, fueling basics, and how to progress safely.</div>
+          <section class="playbook" id="pb-fundamentals">
+            <div class="pb-hero" style="--img:url('https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1800&q=70');">
+              <div class="pb-top">
+                <div class="pb-ic">🧰</div>
+                <div>
+                  <h3 class="pb-title">Universal Fundamentals — Works for Every Goal</h3>
+                  <p class="pb-sub">Effort levels, warmups, fueling basics, and how to progress safely.</p>
                 </div>
               </div>
-              <span class="chev">▾</span>
-            </summary>
-
-            <div class="acc-body">
-              
-              <h2 style="margin:0 0 10px;">Universal Fundamentals — Works for Every Goal</h2>
-<div class="grid-2">
+            </div>
+            <div class="pb-body">
+              <div class="grid-2">
                 <div class="step-card">
                   <h4>🎚️ Effort guide (RPE)</h4>
 <p style="margin:6px 0 0;color:rgba(255,255,255,0.78);"><a href="#run-glossary">See glossary</a> for how these efforts show up in workouts.</p>
@@ -1399,7 +1401,7 @@
                 </div>
               </div>
             </div>
-          </details>
+          </section>
 
         </div>
 
@@ -1423,45 +1425,22 @@
   </main>
 
   <script>
-    // Goal cards: open matching playbook + smooth scroll into view
-    (function () {
-      const cards = document.querySelectorAll(".goal-card");
-      const allDetails = document.querySelectorAll("details.acc");
-
-      
-      function openTarget(selector) {
-        const el = document.querySelector(selector);
-        if (!el) return;
-
-        // If the target is a playbook accordion (DETAILS), close others and open it.
-        if (el.tagName === "DETAILS") {
-          allDetails.forEach(d => { if (d !== el) d.open = false; });
-          el.open = true;
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-
-          const summary = el.querySelector("summary");
-          if (summary) summary.focus({ preventScroll: true });
-          return;
-        }
-
-        // Otherwise, just scroll to the section/card.
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        const focusable = el.querySelector("a, button, h3, h2, summary");
-        if (focusable && focusable.focus) focusable.focus({ preventScroll: true });
-      }
-
-
-      cards.forEach(card => {
-        card.addEventListener("click", () => openTarget(card.getAttribute("data-target")));
-        card.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            openTarget(card.getAttribute("data-target"));
-          }
-        });
+  // Goal tiles: smooth-scroll to sections
+  (function () {
+    const tiles = document.querySelectorAll(".goal-tile");
+    tiles.forEach(a => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href") || "";
+        if (!href.startsWith("#")) return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.pushState(null, "", href);
       });
-    })();
-  </script>
+    });
+  })();
+</script>
 
   <script src="script.js"></script>
 </body>
