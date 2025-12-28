@@ -18,7 +18,6 @@
 <meta content="Beginner-friendly 16-week marathon plan with speed workouts on Tuesdays and long runs on Saturdays." name="description"/>
 <link href="https://images.unsplash.com" rel="preconnect"/>
 <link href="style.css" rel="stylesheet"/>
-
 <style>
 /* CTA alignment fix (Run with group / Read tips) */
 .hero-actions, .cta-row, .hero-cta {
@@ -42,7 +41,55 @@
   .hero-actions a, .cta-row a, .hero-cta a { flex: 1; }
 }
 </style>
-
+<style>
+  .choose-target-highlight {
+    position: relative;
+    border: 3px solid #f97316;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    box-shadow: 0 0 0 6px rgba(249,115,22,0.35),
+                0 0 25px rgba(249,115,22,0.45);
+  }
+  
+  .choose-target-highlight::before {
+    content: "⚡ START HERE";
+    position: absolute;
+    top: -14px;
+    left: 16px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(249,115,22,0.6);
+  }
+  
+  .choose-target-highlight .section-title::after {
+    content: " ← REQUIRED";
+    color: #c2410c;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  @keyframes attentionPulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 4px rgba(249,115,22,0.45),
+                  0 0 18px rgba(249,115,22,0.45);
+    }
+    50% {
+      transform: scale(1.015);
+      box-shadow: 0 0 0 10px rgba(249,115,22,0.25),
+                  0 0 35px rgba(249,115,22,0.65);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 4px rgba(249,115,22,0.45),
+                  0 0 18px rgba(249,115,22,0.45);
+    }
+  }
+  </style>
 </head>
 <body>
 <!-- Ambient background -->
@@ -67,18 +114,15 @@
 <span class="icon-x"></span>
 </button>
 </div>
-
-<nav class="drawer-nav" aria-label="Mobile">
-  <a href="index.html#about" data-close>About</a>
-  <a href="index.html#guidelines" data-close>Guidelines</a>
-  <a href="index.html#schedule" data-close>Schedule</a>
-  <a class="active" href="index.html#training" data-close>Training</a>
-  <a href="running-tips.html" data-close>Running Tips</a>
-  <a href="index.htmlevents.html" data-close>Events</a>
-  <a href="index.html#photos" data-close>Photos</a>
+<nav aria-label="Mobile" class="drawer-nav">
+<a data-close="" href="index.html#about">About</a>
+<a data-close="" href="index.html#guidelines">Guidelines</a>
+<a data-close="" href="index.html#schedule">Schedule</a>
+<a class="active" data-close="" href="index.html#training">Training</a>
+<a data-close="" href="running-tips.html">Running Tips</a>
+<a data-close="" href="index.htmlevents.html">Events</a>
+<a data-close="" href="index.html#photos">Photos</a>
 </nav>
-
-
 <div class="drawer-cta">
 <a class="btn btn-primary" href="https://strava.com/clubs/wellness-warriors" rel="noreferrer" target="_blank">
         Join on Strava <span class="arrow">→</span>
@@ -141,8 +185,7 @@
             16-Week Beginner Marathon Plan<br/>
 </h1>
 <p class="hero-subtitle">
-            A steady, beginner-friendly marathon build with cutback weeks and a 3-week taper.
-            Anchors stay the same: <strong>Tuesday speed</strong> + <strong>Saturday long run</strong>.
+            A steady, half-marathon-to-marathon build with cutback weeks and a 3-week taper. <strong>This plan assumes you’ve already completed a half marathon</strong> and are running consistently. Anchors stay the same: <strong>Tuesday speed</strong> + <strong>Saturday long run</strong>.
           </p>
 <div class="hero-cta">
 <a class="btn btn-primary" href="#plan">View the plan <span class="arrow">→</span></a>
@@ -201,6 +244,56 @@
 </div>
 </section>
 <!-- Plan -->
+
+<!-- Marathon Finish Time Targets -->
+<section class="section" id="finish-times">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker">Race expectations</div>
+      <h2>Marathon finish time targets</h2>
+      <p>
+        These finish-time ranges reflect realistic outcomes for runners who complete this
+        16-week plan consistently after a successful half-marathon build.
+        They assume proper pacing, fueling, and normal race conditions.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+
+      <div style="border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; background:rgba(255,255,255,.04);">
+        <h3 style="margin-top:0;">Level 1 — Completion focused</h3>
+        <p><strong>Peak mileage:</strong> ~32–34 miles/week</p>
+        <p><strong>Expected finish:</strong> <strong>5:15 – 5:45</strong></p>
+        <p style="color:rgba(255,255,255,.75);">
+          Ideal for first-time marathoners coming off a half marathon.
+          Run/walk strategies and conservative pacing are fully supported.
+        </p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; background:rgba(255,255,255,.04);">
+        <h3 style="margin-top:0;">Level 2 — Steady performance</h3>
+        <p><strong>Peak mileage:</strong> ~45–50 miles/week</p>
+        <p><strong>Expected finish:</strong> <strong>4:10 – 4:40</strong></p>
+        <p style="color:rgba(255,255,255,.75);">
+          For runners who can comfortably complete a half marathon and want
+          a controlled, evenly paced marathon effort.
+        </p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; background:rgba(255,255,255,.04);">
+        <h3 style="margin-top:0;">Level 3 — Performance oriented</h3>
+        <p><strong>Peak mileage:</strong> ~55–60 miles/week</p>
+        <p><strong>Expected finish:</strong> <strong>3:40 – 4:05</strong></p>
+        <p style="color:rgba(255,255,255,.75);">
+          Designed for runners with a strong aerobic base who want to race
+          the marathon with sustained marathon-pace work.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt" id="plan">
 <div class="container">
 <div class="section-head reveal">
@@ -210,9 +303,7 @@
             Each week includes a <strong>Tuesday quality session</strong>, a <strong>Saturday long run</strong>,
             plus easy/support mileage. Sundays are optional (easy jog or cross-train).
           </p>
-
 <!-- Plan Level Tabs -->
-
 <style>
   /* --- Plan UI polish --- */
   #ww_mar_tabs .tabbar {
@@ -273,7 +364,6 @@
     background: rgba(255,255,255,.05);
   }
 </style>
-
 <style>
 /* --- Spacing & layout refinements --- */
 #ww_mar_tabs {
@@ -294,8 +384,6 @@
   margin-top: 18px;
 }
 </style>
-
-
 <style>
   /* Make plan area span full width within its container */
   #plan .section-head { max-width: none !important; }
@@ -311,75 +399,111 @@
   #ww_mar_tabs .panel { display:none; width:100%; }
   #ww_mar_tabs .table { width:100%; }
 </style>
-
 <div id="ww_mar_tabs" style="width:100%;">
-  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap; width:100%;">
-    <div style="min-width:260px;">
-      <div style="font-weight:950; letter-spacing:-0.02em; text-transform:uppercase;">Choose your level</div>
-      <div style="margin-top:6px; color:rgba(255,255,255,.78); max-width:92ch; line-height:1.5;">
-        Level 1 targets beginners around ~12:00/mi. Level 2 targets stronger runners around ~10:00/mi with more volume and pace targets.
-      </div>
-<div class="ww-helper" style="margin-top:12px; padding:12px 14px; border-radius:14px;
-  border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05);">
-  <details style="cursor:pointer;">
-    <summary style="list-style:none; font-weight:900; color:rgba(255,255,255,.92);">
-      Which level should I choose?
-      <span style="font-weight:700; color:rgba(255,255,255,.70); margin-left:8px;">(tap to expand)</span>
-    </summary>
-    <div style="margin-top:10px; color:rgba(255,255,255,.82); line-height:1.55;">
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:6px;">
-        <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,.10);">
-          <div style="font-weight:900;">Level 1 (~12:00/mi)</div>
-          <ul style="margin:8px 0 0 18px;">
-            <li>Newer runner or returning after a break</li>
-            <li>Comfortable doing 2–4 miles easy</li>
-            <li>Run/walk is totally okay</li>
-          </ul>
-        </div>
-        <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,.10);">
-          <div style="font-weight:900;">Level 2 (~10:00/mi)</div>
-          <ul style="margin:8px 0 0 18px;">
-            <li>Consistent running for 8+ weeks</li>
-            <li>Comfortable doing 4–6 miles easy</li>
-            <li>Want clearer pace targets + more volume</li>
-          </ul>
-        </div>
-      </div>
-      <div style="margin-top:10px; color:rgba(255,255,255,.72);">
-        If unsure: pick Level 1 for 2 weeks — if you’re finishing fresh, move to Level 2.
-      </div>
-    </div>
-  </details>
+<div style="width:100%;">
+<div class="ww-select-card choose-target-highlight" style="margin-top:12px; padding:14px 14px; border-radius:16px;
+      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05);">
+<div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+<div style="min-width:240px;">
+<div style="font-weight:950; letter-spacing:-0.02em; text-transform:uppercase;">Choose a target</div>
+<div style="margin-top:6px; color:rgba(255,255,255,.78); line-height:1.45; font-weight:750;">
+            Pick the level that matches your <strong>current</strong> easy-run pace and weekly consistency.
+          </div>
+<div style="margin-top:10px; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,.10);">
+<div style="font-weight:900; color:rgba(255,255,255,.92);">Half marathon first</div>
+<div style="margin-top:4px; color:rgba(255,255,255,.76); line-height:1.5;">
+    This 16-week plan assumes you’ve already completed a half marathon. If not, build that base first.
+    <a href="half-marathon-8-week.html" style="color:rgba(255,255,255,.92); text-decoration:underline; font-weight:800;">Learn more →</a>
 </div>
-
-    </div>
-    <div style="flex:1; max-width:560px;">
-      <div class="tabbar" role="tablist" aria-label="Plan level tabs">
-        <button type="button" class="tab" data-level="level1" role="tab" aria-selected="false">Level 1</button>
-        <button type="button" class="tab" data-level="level2" role="tab" aria-selected="false">Level 2</button>
-      </div>
-      <div class="indicator" aria-hidden="true"></div>
-    </div>
-  </div>
-
-  <section class="panel" data-panel="level1">
+</div>
+</div>
+<div style="flex:1; max-width:560px; min-width:260px;">
+<div aria-label="Plan level tabs" class="tabbar" role="tablist">
+<button aria-selected="false" class="tab" data-level="level1" role="tab" type="button">Level 1</button>
+<button aria-selected="false" class="tab" data-level="level2" role="tab" type="button">Level 2</button>
+<button aria-selected="false" class="tab" data-level="level3" role="tab" type="button">Level 3</button>
+</div>
+<div aria-hidden="true" class="indicator"></div>
+</div>
+</div>
+<details style="cursor:pointer; margin-top:12px;">
+<summary style="list-style:none; font-weight:900; color:rgba(255,255,255,.92);">
+    Which level should I choose?
+    <span style="font-weight:700; color:rgba(255,255,255,.70); margin-left:8px;">(tap to expand)</span>
+</summary>
+<div style="margin-top:12px; color:rgba(255,255,255,.82); line-height:1.55;">
+<p style="margin-bottom:10px;">
+<strong>Important:</strong> This 16-week marathon plan is designed as a
+      <strong>continuation from half-marathon training</strong> — not a couch-to-marathon program.
+      All levels assume you have <strong>successfully completed a half marathon</strong>
+      and are running consistently before starting this plan.
+    </p>
+<div style="border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,.12); margin:0 0 14px 0;">
+<div style="font-weight:900; margin-bottom:4px;">Not ready yet?</div>
+<div style="color:rgba(255,255,255,.76); line-height:1.5;">
+        Build your half-marathon base first, then start this 16-week marathon block.
+        <a href="half-marathon-8-week.html" style="color:rgba(255,255,255,.92); text-decoration:underline; font-weight:800;">See training tips →</a>
+</div>
+</div>
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+<div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px; background:rgba(0,0,0,.10);">
+<div style="font-weight:900;">Level 1 (First-time marathoner · ~12:00–12:30/mi)</div>
+<ul style="margin:8px 0 0 18px;">
+<li>Have completed a half marathon comfortably (run or run/walk)</li>
+<li>Currently running ~18–25 miles per week</li>
+<li>Longest recent run: 8–10 miles</li>
+<li>Goal is to <strong>finish strong and healthy</strong>, not chase time</li>
+<li>Walk breaks during long runs or race day are acceptable</li>
+</ul>
+</div>
+<div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px; background:rgba(0,0,0,.10);">
+<div style="font-weight:900;">Level 2 (Comfortable half marathon · ~10:00/mi MP)</div>
+<ul style="margin:8px 0 0 18px;">
+<li>Have completed a half marathon running continuously</li>
+<li>Running consistently 3–4 days per week</li>
+<li>Currently at ~25–35 miles per week</li>
+<li>Longest recent run: 10–12 miles</li>
+<li>Ready for structured workouts and longer marathon-pace segments</li>
+</ul>
+</div>
+<div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px; background:rgba(0,0,0,.10);">
+<div style="font-weight:900;">Level 3 (Strong base · ~9:00/mi MP)</div>
+<ul style="margin:8px 0 0 18px;">
+<li>Have completed one or more half marathons confidently</li>
+<li>Running 4–5 days per week with workouts</li>
+<li>Currently at ~35–45+ miles per week</li>
+<li>Longest recent run: 12–14 miles</li>
+<li>Comfortable sustaining faster aerobic and marathon-pace efforts</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:14px; color:rgba(255,255,255,.72);">
+<strong>If you’re between levels:</strong> start one level easier.
+      A successful marathon build is about consistency and durability —
+      not forcing a pace that your current base doesn’t support.
+    </p>
+</div>
+</details>
+</div>
+</div>
+<section class="panel" data-panel="level1">
 <section class="legend" style="margin-top:16px">
-  <h3 style="margin:0 0 8px 0;">Level 1 (Beginner ~12:00/mi)</h3>
-  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ/LR:</strong> conversational (run/walk OK). Aim ~12:00–13:00/mi. <strong>Workouts:</strong> short & technique-focused.</div>
-  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">If a week feels too big, repeat the previous week. Consistency beats hero weeks.</div>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
-    <span><strong>WU</strong> warm-up</span>
-    <span><strong>CD</strong> cool-down</span>
-    <span><strong>EZ</strong> easy</span>
-    <span><strong>LR</strong> long run</span>
-    <span><strong>XT</strong> cross-train</span>
-    <span><strong>Str</strong> strides</span>
-    <span><strong>T</strong> threshold</span>
-    <span><strong>Int</strong> intervals</span>
-    <span><strong>Hills</strong> hill reps</span>
-    <span><strong>Fartlek</strong> speed play</span>
-    <span><strong>MP</strong> marathon pace</span>
-  </div>
+<h3 style="margin:0 0 8px 0;">Level 1 (First-time marathoner · ~12:00–12:30/mi)</h3>
+<div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ/LR:</strong> conversational (run/walk OK). Aim ~12:00–13:30/mi. <strong>Workouts:</strong> short &amp; technique-focused.</div>
+<div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Built for runners coming off a <strong>successful half marathon</strong>. Peak volume ~<strong>32–34 mi/week</strong>. Repeat a week if needed — consistency beats hero weeks.</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
+<span><strong>WU</strong> warm-up</span>
+<span><strong>CD</strong> cool-down</span>
+<span><strong>EZ</strong> easy</span>
+<span><strong>LR</strong> long run</span>
+<span><strong>XT</strong> cross-train</span>
+<span><strong>Str</strong> strides</span>
+<span><strong>T</strong> threshold</span>
+<span><strong>Int</strong> intervals</span>
+<span><strong>Hills</strong> hill reps</span>
+<span><strong>Fartlek</strong> speed play</span>
+<span><strong>MP</strong> marathon pace</span>
+</div>
 </section>
 <table class="table" style="min-width:980px; width:100%;">
 <thead><tr><th style="padding:10px 12px; white-space:nowrap">Week of</th><th style="padding:10px 12px">Mon</th><th style="padding:10px 12px">Tue (Workout)</th><th style="padding:10px 12px">Wed</th><th style="padding:10px 12px">Thu</th><th style="padding:10px 12px">Fri</th><th style="padding:10px 12px">Sat</th><th style="padding:10px 12px">Sun</th><th style="padding:10px 12px; white-space:nowrap">Weekly miles</th></tr></thead><tbody>
@@ -442,12 +566,12 @@
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 3, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Int 6×2m (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
 <td style="padding:10px 12px; text-align:center">EZ 3</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 15</td>
 <td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>27</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>28</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 10, 2026</strong></td>
@@ -464,23 +588,23 @@
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 17, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Hills 10×30s (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
 <td style="padding:10px 12px; text-align:center">T 18m (4)</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 16</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>29</strong></td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>31</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 24, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Int 5×800 (4)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
 <td style="padding:10px 12px; text-align:center">EZ 4</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 18</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>31</strong></td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>34</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 31, 2026</strong></td>
@@ -497,23 +621,23 @@
 <td style="padding:10px 12px; white-space:nowrap"><strong>Sep 7, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Hills 8×45s (4)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
 <td style="padding:10px 12px; text-align:center">EZ 4</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 18</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>31</strong></td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>34</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Sep 14, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Int 8×400 (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
 <td style="padding:10px 12px; text-align:center">T 20m (4)</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 16</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>30</strong></td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>32</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Sep 21, 2026</strong></td>
@@ -549,26 +673,25 @@
 <td style="padding:10px 12px; text-align:center"><strong>7–9</strong></td>
 </tr>
 </tbody></table>
-
 </section>
-  <section class="panel" data-panel="level2">
+<section class="panel" data-panel="level2">
 <section class="legend" style="margin-top:16px">
-  <h3 style="margin:0 0 8px 0;">Level 2 (~10:00/mi)</h3>
-  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ:</strong> 11:00–12:00/mi · <strong>MP:</strong> ~10:00–10:15/mi · <strong>T:</strong> 9:30–9:55/mi · <strong>Intervals:</strong> 8:55–9:20/mi</div>
-  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Tuesdays are quality. Keep other runs easy so you can nail workouts + long runs.</div>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
-    <span><strong>WU</strong> warm-up</span>
-    <span><strong>CD</strong> cool-down</span>
-    <span><strong>EZ</strong> easy</span>
-    <span><strong>LR</strong> long run</span>
-    <span><strong>XT</strong> cross-train</span>
-    <span><strong>Str</strong> strides</span>
-    <span><strong>T</strong> threshold</span>
-    <span><strong>Int</strong> intervals</span>
-    <span><strong>Hills</strong> hill reps</span>
-    <span><strong>Fartlek</strong> speed play</span>
-    <span><strong>MP</strong> marathon pace</span>
-  </div>
+<h3 style="margin:0 0 8px 0;">Level 2 (~10:00/mi)</h3>
+<div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ:</strong> 11:00–12:00/mi · <strong>MP:</strong> ~10:00–10:15/mi · <strong>T:</strong> 9:30–9:55/mi · <strong>Intervals:</strong> 8:55–9:20/mi</div>
+<div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Built for runners coming off a <strong>strong half marathon</strong> and running 3–4 days/week. Peak volume ~<strong>45–50 mi/week</strong>. Tuesdays are quality — keep other runs easy so you can nail workouts and long runs.</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
+<span><strong>WU</strong> warm-up</span>
+<span><strong>CD</strong> cool-down</span>
+<span><strong>EZ</strong> easy</span>
+<span><strong>LR</strong> long run</span>
+<span><strong>XT</strong> cross-train</span>
+<span><strong>Str</strong> strides</span>
+<span><strong>T</strong> threshold</span>
+<span><strong>Int</strong> intervals</span>
+<span><strong>Hills</strong> hill reps</span>
+<span><strong>Fartlek</strong> speed play</span>
+<span><strong>MP</strong> marathon pace</span>
+</div>
 </section>
 <table class="table" style="min-width:980px; width:100%;">
 <thead><tr><th style="padding:10px 12px; white-space:nowrap">Week of</th><th style="padding:10px 12px">Mon</th><th style="padding:10px 12px">Tue (Workout)</th><th style="padding:10px 12px">Wed</th><th style="padding:10px 12px">Thu</th><th style="padding:10px 12px">Fri</th><th style="padding:10px 12px">Sat</th><th style="padding:10px 12px">Sun</th><th style="padding:10px 12px; white-space:nowrap">Weekly miles</th></tr></thead><tbody>
@@ -664,12 +787,12 @@
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 24, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Int 8×800 (8)</td>
-<td style="padding:10px 12px; text-align:center">EZ 7</td>
-<td style="padding:10px 12px; text-align:center">MP 10 (11)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">MP 8 (9)</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 22</td>
+<td style="padding:10px 12px; text-align:center">LR 20</td>
 <td style="padding:10px 12px; text-align:center">EZ 4</td>
-<td style="padding:10px 12px; text-align:center"><strong>52</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>47</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Aug 31, 2026</strong></td>
@@ -686,12 +809,12 @@
 <td style="padding:10px 12px; white-space:nowrap"><strong>Sep 7, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Hills 10×60s (8)</td>
-<td style="padding:10px 12px; text-align:center">EZ 8</td>
-<td style="padding:10px 12px; text-align:center">MP 10 (11)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">MP 8 (9)</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 22</td>
+<td style="padding:10px 12px; text-align:center">LR 20</td>
 <td style="padding:10px 12px; text-align:center">EZ 4</td>
-<td style="padding:10px 12px; text-align:center"><strong>53</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>48</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Sep 14, 2026</strong></td>
@@ -738,10 +861,196 @@
 <td style="padding:10px 12px; text-align:center"><strong>13</strong></td>
 </tr>
 </tbody></table>
-
+</section>
+<section class="panel" data-panel="level3">
+<section class="legend" style="margin-top:16px">
+<h3 style="margin:0 0 8px 0;">Level 3 (~9:00/mi)</h3>
+<div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ:</strong> 10:15–11:15/mi · <strong>MP:</strong> ~8:55–9:05/mi · <strong>T:</strong> 8:20–8:40/mi · <strong>Intervals:</strong> 7:45–8:05/mi</div>
+<div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Built for runners with a <strong>solid base</strong> (4–5 days/week). Peak volume ~<strong>55–60 mi/week</strong>. Expect longer marathon-pace segments and slightly higher midweek mileage.</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
+<span><strong>WU</strong> warm-up</span>
+<span><strong>CD</strong> cool-down</span>
+<span><strong>EZ</strong> easy</span>
+<span><strong>LR</strong> long run</span>
+<span><strong>XT</strong> cross-train</span>
+<span><strong>Str</strong> strides</span>
+<span><strong>T</strong> threshold</span>
+<span><strong>Int</strong> intervals</span>
+<span><strong>Hills</strong> hill reps</span>
+<span><strong>Fartlek</strong> speed play</span>
+<span><strong>MP</strong> marathon pace</span>
+</div>
+</section>
+<table class="table" style="min-width:980px; width:100%;">
+<thead><tr><th style="padding:10px 12px; white-space:nowrap">Week of</th><th style="padding:10px 12px">Mon</th><th style="padding:10px 12px">Tue (Workout)</th><th style="padding:10px 12px">Wed</th><th style="padding:10px 12px">Thu</th><th style="padding:10px 12px">Fri</th><th style="padding:10px 12px">Sat</th><th style="padding:10px 12px">Sun</th><th style="padding:10px 12px; white-space:nowrap">Weekly miles</th></tr></thead><tbody>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jun 29, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Fartlek 10×1m (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 12</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>30</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jul 6, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Hills 14×30s (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">T 25m (6)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 14</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>32</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jul 13, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int 6×1K (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 16</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>40</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jul 20, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Hills 16×30s (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">MP 7 (9)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 18</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>45</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jul 27, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T 30m (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 20</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>45</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Aug 3, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int 6×1K (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 8</td>
+<td style="padding:10px 12px; text-align:center">MP 10 (11)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 20 (last 6 steady)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>49</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Aug 10, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Fartlek 10×1m (Down) (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 14</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>37</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Aug 17, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Hills 14×45s (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 8</td>
+<td style="padding:10px 12px; text-align:center">T 35m (8)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 20 (8 @ MP)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center"><strong>47</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Aug 24, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int 8×800 (9)</td>
+<td style="padding:10px 12px; text-align:center">EZ 8</td>
+<td style="padding:10px 12px; text-align:center">MP 12 (13)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 20 (12 @ MP)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center"><strong>57</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Aug 31, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T 25m (Down) (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 16</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center"><strong>41</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Sep 7, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Hills 10×60s (9)</td>
+<td style="padding:10px 12px; text-align:center">EZ 9</td>
+<td style="padding:10px 12px; text-align:center">MP 12 (13)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 20 (last 8 steady)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center"><strong>58</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Sep 14, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int 14×400 (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 8</td>
+<td style="padding:10px 12px; text-align:center">T 30m (8)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 18 (last 6 @ MP)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center"><strong>46</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Sep 21, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">MP 10 (11)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 14</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center"><strong>44</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Sep 28, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int 6×1K (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">MP 8 (10)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 10</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>38</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Oct 5, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Shakeout 2</td>
+<td style="padding:10px 12px; text-align:center">—</td>
+<td style="padding:10px 12px; text-align:center"><strong>14</strong></td>
+</tr>
+</tbody></table>
 </section>
 </div>
-
 <script>
 (function(){
   const wrap = document.getElementById('ww_mar_tabs');
@@ -770,37 +1079,34 @@
   let level = 'level1';
   try{
     const saved = localStorage.getItem('ww_mar_tabs_level');
-    if(saved==='level1'||saved==='level2') level = saved;
+    if(saved==='level1'||saved==='level2'||saved==='level3') level = saved;
   }catch(e){}
   setLevel(level);
   window.addEventListener('resize', () => moveIndicator(wrap.querySelector('.tab[aria-selected="true"]')));
 })();
 </script>
-
 <!-- Race Day Banner (Bottom) -->
 <section style="margin-top:48px;">
-  <div style="border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.16);">
-    <div style="padding:80px 20px; text-align:center;
+<div style="border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.16);">
+<div style="padding:80px 20px; text-align:center;
       background:
         linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.9)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=70') center/cover no-repeat;">
-      <div style="letter-spacing:.18em; text-transform:uppercase; font-weight:900;
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=2000&amp;q=70') center/cover no-repeat;">
+<div style="letter-spacing:.18em; text-transform:uppercase; font-weight:900;
         color:rgba(255,255,255,.9); font-size:.9rem;">
         Race Day
       </div>
-      <div style="font-size:clamp(1.9rem, 3.2vw, 2.8rem);
+<div style="font-size:clamp(1.9rem, 3.2vw, 2.8rem);
         font-weight:950; margin-top:10px;">
         Bank od America - Chicago Marathon — Oct 12, 2026
       </div>
-      <div style="max-width:72ch; margin:14px auto 0;
+<div style="max-width:72ch; margin:14px auto 0;
         color:rgba(255,255,255,.9); line-height:1.6; font-size:1.05rem;">
         Run patient early. Fuel consistently. Finish with grit.
       </div>
-    </div>
-  </div>
+</div>
+</div>
 </section>
-
-
 <!-- Tips -->
 <section class="section" id="tips">
 <div class="container">
@@ -843,9 +1149,8 @@
 </footer>
 </div>
 </section>
-</main>
+</div></div></section></main>
 <script src="script.js"></script>
-
 <style>
 /* Mobile collapsible weekly cards */
 #ww_mar_tabs .ww-mobile-weeks { display:none; margin-top:14px; }
@@ -862,7 +1167,6 @@
   #ww_mar_tabs .ww-mobile-weeks { display:block; }
 }
 </style>
-
 <script>
 (function(){
   const wrap = document.getElementById('ww_mar_tabs');
@@ -929,8 +1233,5 @@
   });
 })();
 </script>
-
-
-
 </body>
 </html>

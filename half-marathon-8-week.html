@@ -15,7 +15,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="dark light" name="color-scheme"/>
 <title>Wellness Warriors — 8-Week Half Marathon Plan</title>
-<meta content="Beginner-friendly 8-week half marathon plan with speed workouts on Tuesdays and long runs on Saturdays." name="description"/>
+<meta content="8-week half marathon plan with speed workouts on Tuesdays and long runs on Saturdays." name="description"/>
 <link href="https://images.unsplash.com" rel="preconnect"/>
 <link href="style.css" rel="stylesheet"/>
 
@@ -42,6 +42,56 @@
   .hero-actions a, .cta-row a, .hero-cta a { flex: 1; }
 }
 </style>
+
+<style>
+  .choose-target-highlight {
+    position: relative;
+    border: 3px solid #f97316;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    box-shadow: 0 0 0 6px rgba(249,115,22,0.35),
+                0 0 25px rgba(249,115,22,0.45);
+  }
+  
+  .choose-target-highlight::before {
+    content: "⚡ START HERE";
+    position: absolute;
+    top: -14px;
+    left: 16px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(249,115,22,0.6);
+  }
+  
+  .choose-target-highlight .section-title::after {
+    content: " ← REQUIRED";
+    color: #c2410c;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  @keyframes attentionPulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 4px rgba(249,115,22,0.45),
+                  0 0 18px rgba(249,115,22,0.45);
+    }
+    50% {
+      transform: scale(1.015);
+      box-shadow: 0 0 0 10px rgba(249,115,22,0.25),
+                  0 0 35px rgba(249,115,22,0.65);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 4px rgba(249,115,22,0.45),
+                  0 0 18px rgba(249,115,22,0.45);
+    }
+  }
+  </style>
 
 </head>
 <body>
@@ -137,7 +187,7 @@
 <span class="chip"><span class="chip-icon">👟</span> Long Saturdays</span>
 </div>
 <h1 class="hero-title">
-            8-Week Beginner Half Marathon Plan<br/>
+            8-Week Half Marathon Plan<br/>
 </h1>
 <p class="hero-subtitle">
             A simple, pace-inclusive plan built around our two anchors:
@@ -201,6 +251,45 @@
 </div>
 </section>
 <!-- Plan -->
+
+<!-- Half Marathon Target Finish Times -->
+<section class="section" id="finish-times">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker">Race expectations</div>
+      <h2>Half marathon finish time targets</h2>
+      <p>
+        These ranges reflect realistic outcomes for runners who complete this 8-week plan consistently.
+        They assume you already have a basic running base (see level guidance below), fuel appropriately for long runs,
+        and run in normal race conditions.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+      <div style="border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; background:rgba(255,255,255,.04);">
+        <h3 style="margin-top:0;">Level 1 — Finish & build confidence</h3>
+        <p><strong>Target finish:</strong> <strong>2:25 – 2:50</strong></p>
+        <p><strong>Approx race pace:</strong> ~11:05–13:00/mi</p>
+        <p style="color:rgba(255,255,255,.75);">Best for first-time half marathoners. Run/walk is totally fine.</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; background:rgba(255,255,255,.04);">
+        <h3 style="margin-top:0;">Level 2 — Steady performance</h3>
+        <p><strong>Target finish:</strong> <strong>2:00 – 2:20</strong></p>
+        <p><strong>Approx race pace:</strong> ~9:10–10:40/mi</p>
+        <p style="color:rgba(255,255,255,.75);">For runners with a solid base who can run continuously for ~60–90 minutes.</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:16px; background:rgba(255,255,255,.04);">
+        <h3 style="margin-top:0;">Level 3 — Race-focused</h3>
+        <p><strong>Target finish:</strong> <strong>1:40 – 2:00</strong></p>
+        <p><strong>Approx race pace:</strong> ~7:40–9:10/mi</p>
+        <p style="color:rgba(255,255,255,.75);">For runners who already train 4–5 days/week and can handle longer tempo work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt" id="plan">
 <div class="container">
 <div class="section-head reveal">
@@ -313,60 +402,93 @@
 </style>
 
 <div id="ww_half_tabs" style="width:100%;">
-  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap; width:100%;">
-    <div style="min-width:260px;">
-      <div style="font-weight:950; letter-spacing:-0.02em; text-transform:uppercase;">Choose your level</div>
-      <div style="margin-top:6px; color:rgba(255,255,255,.78); max-width:92ch; line-height:1.5;">
-        Level 1 targets beginners around ~12:00/mi. Level 2 targets stronger runners around ~10:00/mi with more volume and pace targets.
-      </div>
-<div class="ww-helper" style="margin-top:12px; padding:12px 14px; border-radius:14px;
-  border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05);">
-  <details style="cursor:pointer;">
-    <summary style="list-style:none; font-weight:900; color:rgba(255,255,255,.92);">
-      Which level should I choose?
-      <span style="font-weight:700; color:rgba(255,255,255,.70); margin-left:8px;">(tap to expand)</span>
-    </summary>
-    <div style="margin-top:10px; color:rgba(255,255,255,.82); line-height:1.55;">
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:6px;">
-        <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,.10);">
-          <div style="font-weight:900;">Level 1 (~12:00/mi)</div>
-          <ul style="margin:8px 0 0 18px;">
-            <li>Newer runner or returning after a break</li>
-            <li>Comfortable doing 2–4 miles easy</li>
-            <li>Run/walk is totally okay</li>
-          </ul>
+    <div style="width:100%;">
+    <div class="ww-select-card choose-target-highlight" style="margin-top:12px; padding:14px 14px; border-radius:16px;
+      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+        <div style="min-width:240px;">
+          <div style="font-weight:950; letter-spacing:-0.02em; text-transform:uppercase;">Choose a target</div>
+          <div style="margin-top:6px; color:rgba(255,255,255,.78); line-height:1.45; font-weight:750;">
+            Pick the level that matches your <strong>current</strong> easy-run pace and weekly consistency.
+          </div>
         </div>
-        <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:10px 12px; background:rgba(0,0,0,.10);">
-          <div style="font-weight:900;">Level 2 (~10:00/mi)</div>
-          <ul style="margin:8px 0 0 18px;">
-            <li>Consistent running for 8+ weeks</li>
-            <li>Comfortable doing 4–6 miles easy</li>
-            <li>Want clearer pace targets + more volume</li>
-          </ul>
+
+        <div style="flex:1; max-width:560px; min-width:260px;">
+          <div class="tabbar" role="tablist" aria-label="Plan level tabs">
+            <button type="button" class="tab" data-level="level1" role="tab" aria-selected="false">Level 1</button>
+            <button type="button" class="tab" data-level="level2" role="tab" aria-selected="false">Level 2</button>
+            <button type="button" class="tab" data-level="level3" role="tab" aria-selected="false">Level 3</button>
+          </div>
+          <div class="indicator" aria-hidden="true"></div>
         </div>
       </div>
-      <div style="margin-top:10px; color:rgba(255,255,255,.72);">
-        If unsure: pick Level 1 for 2 weeks — if you’re finishing fresh, move to Level 2.
+
+      
+<details style="cursor:pointer; margin-top:12px;">
+  <summary style="list-style:none; font-weight:900; color:rgba(255,255,255,.92);">
+    Which level should I choose?
+    <span style="font-weight:700; color:rgba(255,255,255,.70); margin-left:8px;">(tap to expand)</span>
+  </summary>
+
+  <div style="margin-top:12px; color:rgba(255,255,255,.82); line-height:1.55;">
+    <p style="margin-bottom:10px;">
+      <strong>Before you start:</strong> This 8-week plan assumes you already have a basic running base.
+      If you’re brand-new to running, build up first (consistent easy runs for 6–8 weeks).
+    </p>
+
+    <p style="margin-bottom:14px;">
+      A good baseline for any level is being able to complete a <strong>6–8 mile long run</strong> comfortably
+      (run or run/walk) and running at least <strong>3 days/week</strong>.
+    </p>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:6px;">
+
+      <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px; background:rgba(0,0,0,.10);">
+        <div style="font-weight:900;">Level 1 (Finish-focused)</div>
+        <ul style="margin:8px 0 0 18px;">
+          <li>Running 3 days/week consistently</li>
+          <li>Longest recent run: ~6 miles (run/walk OK)</li>
+          <li>Comfortable easy effort (conversation pace)</li>
+          <li>Goal: finish strong and feel good afterward</li>
+        </ul>
       </div>
-    </div>
-  </details>
-</div>
+
+      <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px; background:rgba(0,0,0,.10);">
+        <div style="font-weight:900;">Level 2 (Steady performance)</div>
+        <ul style="margin:8px 0 0 18px;">
+          <li>Running 3–4 days/week consistently</li>
+          <li>Longest recent run: ~8–9 miles</li>
+          <li>Can run continuously for ~60–90 minutes</li>
+          <li>Goal: steady pacing with a strong finish</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px; background:rgba(0,0,0,.10);">
+        <div style="font-weight:900;">Level 3 (Race-focused)</div>
+        <ul style="margin:8px 0 0 18px;">
+          <li>Running 4–5 days/week (including workouts)</li>
+          <li>Longest recent run: ~9–10 miles</li>
+          <li>Comfortable with tempo/threshold work</li>
+          <li>Goal: race the half marathon (not just finish)</li>
+        </ul>
+      </div>
 
     </div>
-    <div style="flex:1; max-width:560px;">
-      <div class="tabbar" role="tablist" aria-label="Plan level tabs">
-        <button type="button" class="tab" data-level="level1" role="tab" aria-selected="false">Level 1</button>
-        <button type="button" class="tab" data-level="level2" role="tab" aria-selected="false">Level 2</button>
-      </div>
-      <div class="indicator" aria-hidden="true"></div>
+
+    <div style="margin-top:12px; color:rgba(255,255,255,.72);">
+      If you’re unsure: start one level easier. Consistency beats forcing a pace you can’t recover from.
+    </div>
+  </div>
+</details>
+
     </div>
   </div>
 
   <section class="panel" data-panel="level1">
 <section class="legend" style="margin-top:16px">
-  <h3 style="margin:0 0 8px 0;">Level 1 (Beginner ~12:00/mi)</h3>
-  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ/LR:</strong> conversational (run/walk OK). Aim ~12:00–13:00/mi. <strong>Workout:</strong> short + controlled (focus on form).</div>
-  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Use run/walk if needed (ex: 3 min run / 1 min walk). Keep Tuesdays smooth, not savage.</div>
+  <h3 style="margin:0 0 8px 0;">Level 1 (target finish: 2:25–2:50)</h3>
+  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ/LR:</strong> conversational (run/walk OK). Aim ~12:00–13:30/mi · <strong>Steady:</strong> ~11:15–12:00/mi · <strong>Workout:</strong> short + controlled (focus on form)</div>
+  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Baseline: running 3 days/week and a recent long run of ~6 miles. Keep Tuesdays smooth, not savage.</div>
   <div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
     <span><strong>WU</strong> warm-up</span>
     <span><strong>CD</strong> cool-down</span>
@@ -386,191 +508,79 @@
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Apr 13, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">WU+Fartlek: 6×30s (2)</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 2 + 4×15s Str</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 1–2</td>
-<td style="padding:10px 12px; text-align:center"><strong>10–11</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 20, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">WU+Hills: 6×15s (2)</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 4</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>12</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 27, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">WU+Fartlek: 8×30s (2–3)</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 2 + Str</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 5</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>13–14</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>May 4, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">T: 10–12 min (3)</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
+<td style="padding:10px 12px; text-align:center">WU + Fartlek 6×30s (3)</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">EZ 3 + 4×15s Str</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 6</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>15</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>May 11, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Int: 5×2m (3)</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 7</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>17</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>May 18, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">T: 15–18 min (3–4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 2 + Str</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 8</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>18–19</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>May 25, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Fartlek: 6×45s (Down) (2–3)</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 6</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>12–14</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>Jun 1, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center">EZ 1–2 + Str</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Shakeout 1</td>
-<td style="padding:10px 12px; text-align:center">—</td>
-<td style="padding:10px 12px; text-align:center"><strong>6–7</strong></td>
-</tr>
-</tbody></table>
-
-</section>
-  <section class="panel" data-panel="level2">
-<section class="legend" style="margin-top:16px">
-  <h3 style="margin:0 0 8px 0;">Level 2 (~10:00/mi)</h3>
-  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ:</strong> 11:00–12:00/mi · <strong>T:</strong> 9:45–10:05/mi · <strong>Intervals:</strong> 9:10–9:30/mi · <strong>LR:</strong> easy effort</div>
-  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Keep long runs easy. Hit quality on Tuesdays. Don’t race workouts.</div>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
-    <span><strong>WU</strong> warm-up</span>
-    <span><strong>CD</strong> cool-down</span>
-    <span><strong>EZ</strong> easy</span>
-    <span><strong>LR</strong> long run</span>
-    <span><strong>XT</strong> cross-train</span>
-    <span><strong>Str</strong> strides</span>
-    <span><strong>T</strong> threshold</span>
-    <span><strong>Int</strong> intervals</span>
-    <span><strong>Hills</strong> hill reps</span>
-    <span><strong>Fartlek</strong> speed play</span>
-    <span><strong>MP</strong> marathon pace</span>
-  </div>
-</section>
-<table class="table" style="min-width:980px; width:100%;">
-<thead><tr><th style="padding:10px 12px; white-space:nowrap">Week of</th><th style="padding:10px 12px">Mon</th><th style="padding:10px 12px">Tue (Workout)</th><th style="padding:10px 12px">Wed</th><th style="padding:10px 12px">Thu</th><th style="padding:10px 12px">Fri</th><th style="padding:10px 12px">Sat</th><th style="padding:10px 12px">Sun</th><th style="padding:10px 12px; white-space:nowrap">Weekly miles</th></tr></thead><tbody>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 13, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">WU+Hills: 8×20s (3)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 4</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>15</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 20, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Fartlek: 8×1m (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 5</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>17</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 27, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Int: 6×400 (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 6</td>
-<td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>18</strong></td>
-</tr>
-<tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>May 4, 2026</strong></td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">T: 20 min (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 4</td>
-<td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 7</td>
 <td style="padding:10px 12px; text-align:center">EZ 2</td>
 <td style="padding:10px 12px; text-align:center"><strong>20</strong></td>
 </tr>
 <tr>
-<td style="padding:10px 12px; white-space:nowrap"><strong>May 11, 2026</strong></td>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 20, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Int: 5×800 (5)</td>
+<td style="padding:10px 12px; text-align:center">WU + Hills 8×20s (3)</td>
 <td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">Steady 3 (last 10m steady)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 2</td>
+<td style="padding:10px 12px; text-align:center"><strong>21</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 27, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">WU + Fartlek 8×45s (3–4)</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">LR 8</td>
 <td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>22</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>22–23</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 4, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T: 2×8m (3–4)</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 9</td>
+<td style="padding:10px 12px; text-align:center">EZ 2</td>
+<td style="padding:10px 12px; text-align:center"><strong>24–25</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 11, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int: 6×2m (4)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 10</td>
+<td style="padding:10px 12px; text-align:center">EZ 2</td>
+<td style="padding:10px 12px; text-align:center"><strong>26</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>May 18, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">T: 25 min (5)</td>
+<td style="padding:10px 12px; text-align:center">T: 20m (4–5)</td>
 <td style="padding:10px 12px; text-align:center">EZ 4</td>
-<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 9</td>
+<td style="padding:10px 12px; text-align:center">LR 8 (cutback)</td>
 <td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>23</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>22–23</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>May 25, 2026</strong></td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">Fartlek: 6×1m (Down) (4)</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
-<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">HMP: 2×10m (4–5)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
 <td style="padding:10px 12px; text-align:center">Rest</td>
-<td style="padding:10px 12px; text-align:center">LR 7</td>
+<td style="padding:10px 12px; text-align:center">LR 10 (last 2 steady)</td>
 <td style="padding:10px 12px; text-align:center">EZ 2</td>
-<td style="padding:10px 12px; text-align:center"><strong>19</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>25–26</strong></td>
 </tr>
 <tr>
 <td style="padding:10px 12px; white-space:nowrap"><strong>Jun 1, 2026</strong></td>
@@ -581,11 +591,238 @@
 <td style="padding:10px 12px; text-align:center">Rest</td>
 <td style="padding:10px 12px; text-align:center">Shakeout 2</td>
 <td style="padding:10px 12px; text-align:center">—</td>
-<td style="padding:10px 12px; text-align:center"><strong>9</strong></td>
+<td style="padding:10px 12px; text-align:center"><strong>11</strong></td>
 </tr>
 </tbody></table>
 
 </section>
+
+  <section class="panel" data-panel="level2">
+    <section class="legend" style="margin-top:16px">
+  <h3 style="margin:0 0 8px 0;">Level 2 (target finish: 2:00–2:20)</h3>
+  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ:</strong> 10:45–12:00/mi · <strong>HM Pace (HMP):</strong> ~9:25–10:05/mi · <strong>T:</strong> 8:55–9:25/mi · <strong>Intervals:</strong> 8:20–8:50/mi · <strong>LR:</strong> easy → steady</div>
+  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Baseline: running 3–4 days/week and a recent long run of ~8–9 miles. Keep long runs controlled; race on race day.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
+    <span><strong>WU</strong> warm-up</span>
+    <span><strong>CD</strong> cool-down</span>
+    <span><strong>EZ</strong> easy</span>
+    <span><strong>LR</strong> long run</span>
+    <span><strong>XT</strong> cross-train</span>
+    <span><strong>Str</strong> strides</span>
+    <span><strong>T</strong> threshold</span>
+    <span><strong>Int</strong> intervals</span>
+    <span><strong>Hills</strong> hill reps</span>
+    <span><strong>Fartlek</strong> speed play</span>
+    <span><strong>MP</strong> marathon pace</span>
+  </div>
+</section>
+    <table class="table" style="min-width:980px; width:100%;">
+    <thead><tr><th style="padding:10px 12px; white-space:nowrap">Week of</th><th style="padding:10px 12px">Mon</th><th style="padding:10px 12px">Tue (Workout)</th><th style="padding:10px 12px">Wed</th><th style="padding:10px 12px">Thu</th><th style="padding:10px 12px">Fri</th><th style="padding:10px 12px">Sat</th><th style="padding:10px 12px">Sun</th><th style="padding:10px 12px; white-space:nowrap">Weekly miles</th></tr></thead><tbody>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 13, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">WU + Hills 10×30s (4)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 4 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 8</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>23</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 20, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Fartlek 8×1m (5)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">T: 2×10m (5)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 9</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>26</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 27, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int: 6×800 (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">EZ 4 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 10</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>28</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 4, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T: 25m (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">HMP: 4 (5)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 11</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>30</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 11, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int: 5×1K (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">EZ 5 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 12</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>32</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 18, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T: 2×12m (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">HMP: 5 (6)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 9 (cutback)</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>28</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 25, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">HMP: 6 (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">EZ 4 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 12 (last 3 steady)</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center"><strong>34</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jun 1, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 3</td>
+<td style="padding:10px 12px; text-align:center">EZ 2 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Shakeout 2</td>
+<td style="padding:10px 12px; text-align:center">—</td>
+<td style="padding:10px 12px; text-align:center"><strong>11</strong></td>
+</tr>
+</tbody></table>
+  </section>
+
+
+  <section class="panel" data-panel="level3">
+    <section class="legend" style="margin-top:16px">
+  <h3 style="margin:0 0 8px 0;">Level 3 (target finish: 1:40–2:00)</h3>
+  <div style="color:rgba(255,255,255,.88); line-height:1.5; margin-bottom:8px"><strong>EZ:</strong> 9:45–11:00/mi · <strong>HM Pace (HMP):</strong> ~7:45–9:10/mi · <strong>T:</strong> 7:55–8:25/mi · <strong>Intervals:</strong> 7:20–7:50/mi · <strong>LR:</strong> easy → steady w/ HMP segments</div>
+  <div style="color:rgba(255,255,255,.80); line-height:1.5; margin-bottom:12px">Baseline: running 4–5 days/week and a recent long run of ~9–10 miles. Workouts are denser with less recovery.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;line-height:1.3;color:rgba(255,255,255,.82)">
+    <span><strong>WU</strong> warm-up</span>
+    <span><strong>CD</strong> cool-down</span>
+    <span><strong>EZ</strong> easy</span>
+    <span><strong>LR</strong> long run</span>
+    <span><strong>XT</strong> cross-train</span>
+    <span><strong>Str</strong> strides</span>
+    <span><strong>T</strong> threshold</span>
+    <span><strong>Int</strong> intervals</span>
+    <span><strong>Hills</strong> hill reps</span>
+    <span><strong>Fartlek</strong> speed play</span>
+    <span><strong>MP</strong> marathon pace</span>
+  </div>
+</section>
+    <table class="table" style="min-width:980px; width:100%;">
+    <thead><tr><th style="padding:10px 12px; white-space:nowrap">Week of</th><th style="padding:10px 12px">Mon</th><th style="padding:10px 12px">Tue (Workout)</th><th style="padding:10px 12px">Wed</th><th style="padding:10px 12px">Thu</th><th style="padding:10px 12px">Fri</th><th style="padding:10px 12px">Sat</th><th style="padding:10px 12px">Sun</th><th style="padding:10px 12px; white-space:nowrap">Weekly miles</th></tr></thead><tbody>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 13, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">WU + Hills 12×30s (5)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">EZ 5 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 9</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>29</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 20, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Fartlek 10×1m (6)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">T: 3×8m (7)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 10</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>34</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Apr 27, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int: 6×1K (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">HMP: 5 (6)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 11</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>35</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 4, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T: 30m (7)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">EZ 6 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 12</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>35</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 11, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Int: 8×800 (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">HMP: 6 (7)</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 12 (last 4 steady)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>38</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 18, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">T: 2×15m (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 6</td>
+<td style="padding:10px 12px; text-align:center">EZ 6 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 10 (cutback)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>34</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>May 25, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">HMP: 7 (8)</td>
+<td style="padding:10px 12px; text-align:center">EZ 7</td>
+<td style="padding:10px 12px; text-align:center">EZ 6 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">LR 12 (include 3 @ HMP)</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center"><strong>41</strong></td>
+</tr>
+<tr>
+<td style="padding:10px 12px; white-space:nowrap"><strong>Jun 1, 2026</strong></td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">EZ 5</td>
+<td style="padding:10px 12px; text-align:center">EZ 4</td>
+<td style="padding:10px 12px; text-align:center">EZ 3 + Str</td>
+<td style="padding:10px 12px; text-align:center">Rest</td>
+<td style="padding:10px 12px; text-align:center">Shakeout 2</td>
+<td style="padding:10px 12px; text-align:center">—</td>
+<td style="padding:10px 12px; text-align:center"><strong>14</strong></td>
+</tr>
+</tbody></table>
+  </section>
+  
+
 </div>
 
 <script>
@@ -616,7 +853,7 @@
   let level = 'level1';
   try{
     const saved = localStorage.getItem('ww_half_tabs_level');
-    if(saved==='level1'||saved==='level2') level = saved;
+    if(saved==='level1'||saved==='level2'||saved==='level3') level = saved;
   }catch(e){}
   setLevel(level);
   window.addEventListener('resize', () => moveIndicator(wrap.querySelector('.tab[aria-selected="true"]')));
