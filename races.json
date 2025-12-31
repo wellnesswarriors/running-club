@@ -2,33 +2,42 @@
   "year": 2026,
   "races": [
     {
+      "id": "chicago-half-2026",
       "name": "Bank of America Half Marathon 13.1",
       "url": "https://www.chicago13point1.com",
       "distance": "13.1 mi",
       "date": "2026-06-07",
-      "location": "Garfield Park • Chicago, IL",
+      "location": "Garfield Park • Chicago",
       "leader": "Ananda",
-      "leaderEmail": "wellnesswarriorschicago@gmail.com",
       "runners": [
-        "Sarah Johnson",
-        "Mike Chen",
-        "Emily Rodriguez",
-        "David Park",
-        "Jessica Lee"
+        "Sharad",
+        "Ananda",
+        "Veera"
       ]
     },
     {
+      "id": "chicago-full-2026",
       "name": "Bank of America Chicago Marathon",
       "url": "https://www.chicagomarathon.com/",
       "distance": "26.2 mi",
       "date": "2026-10-11",
-      "location": "Grant Park • Chicago, IL",
+      "location": "Grant Park • Chicago",
       "leader": "Veera",
-      "leaderEmail": "wellnesswarriorschicago@gmail.com",
       "runners": [
-        "Alex Martinez",
-        "Priya Patel",
-        "James Wilson"
+        "Veera",
+        "Ananda"
+      ]
+    },
+    {
+      "id": "chciagoland-spring-marathon-2026",
+      "name": "Chicagoland Spring Maarthon",
+      "url": "https://allcommunityevents.com/chicagolandspringmarathon",
+      "distance": "26.2 mi",
+      "date": "2026-05-03",
+      "location": "Bussee Woods • Schaumburg",
+      "leader": "Ram",
+      "runners": [
+        "Ram"
       ]
     }
   ]
