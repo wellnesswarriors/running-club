@@ -330,6 +330,50 @@
   <script src="script.js"></script>
   <script>
     // Load race data from JSON file
+
+    // 1) Set this to your Vercel project domain
+  const API_BASE = "https://running-club-api.vercel.app";
+
+  // 2) Create a stable raceId if your JSON doesn't already have race.id
+  function makeRaceId(race) {
+    // Prefer an explicit id in races.json (recommended)
+    if (race.id) return String(race.id);
+
+    // Fallback: deterministic id from name + date
+    const name = (race.name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const date = (race.date || "").trim();
+    return `${name}-${date}`; // e.g. "shamrock-shuffle-2026-03-22"
+  }
+
+  async function addRunner(raceId) {
+    const name = prompt("Enter your name to join this race:");
+    if (!name) return;
+
+    const runnerName = name.trim().replace(/\s+/g, " ");
+    if (runnerName.length < 2 || runnerName.length > 40) {
+      alert("Please enter a name between 2 and 40 characters.");
+      return;
+    }
+
+    const resp = await fetch(`${API_BASE}/api/add-runner`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ raceId, runnerName })
+    });
+
+    if (!resp.ok) {
+      let err = {};
+      try { err = await resp.json(); } catch {}
+      alert(`Could not add you: ${err.error || resp.statusText}`);
+      return;
+    }
+
+    // Reload races; add cache buster to avoid stale raw.githubusercontent.com
+    await loadRaces(true);
+  }
+
+  async function loadRaces(bustCache = false) {
+
     async function loadRaces() {
       const loadingEl = document.getElementById('loadingState');
       const errorEl = document.getElementById('errorState');
@@ -340,7 +384,8 @@
       
       try {
         // Fetch the races data from JSON file
-        const response = await fetch('https://raw.githubusercontent.com/wellnesswarriors/running-club/refs/heads/main/races.json?v=3');
+        const cacheBust = bustCache ? `&t=${Date.now()}` : "";
+        const response = await fetch(`https://raw.githubusercontent.com/wellnesswarriors/running-club/refs/heads/main/races.json?v=3${cacheBust}`);
         
         if (!response.ok) {
           throw new Error('Failed to load races');
@@ -370,7 +415,15 @@
           const emailLink = `mailto:${race.leaderEmail || 'wellnesswarriorschicago@gmail.com'}?subject=${emailSubject}`;
           
           // Format runners list
-          const runnersHTML = formatRunners(race.runners || []);
+
+          const raceId = makeRaceId(race);
+          const runnersHTML = `
+            ${formatRunners(race.runners || [])}
+            <div style="margin-top:8px;">
+              <button class="btn btn-soft" type="button" onclick="addRunner('${raceId}')">Add me</button>
+            </div>
+          `;
+
           
           row.innerHTML = `
             <td style="padding:10px 12px">
