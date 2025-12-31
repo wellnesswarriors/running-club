@@ -12,7 +12,12 @@
       "runners": [
         "Sharad",
         "Ananda",
-        "Veera"
+        "Veera",
+        "Ashok K",
+        "Ashok V",
+        "Ram",
+        "Dhana",
+        "Vishal"
       ]
     },
     {
@@ -24,8 +29,14 @@
       "location": "Grant Park • Chicago",
       "leader": "Veera",
       "runners": [
+        "Sharad",
+        "Ananda",
         "Veera",
-        "Ananda"
+        "Ashok K",
+        "Ashok V",
+        "Ram",
+        "Dhana",
+        "Vishal"
       ]
     },
     {
@@ -38,6 +49,31 @@
       "leader": "Ram",
       "runners": [
         "Ram"
+      ]
+    },
+    {
+      "id": "berlin-marathon-2026",
+      "name": "BMW Berlin Marathon",
+      "url": "https://www.bmw-berlin-marathon.com/en/",
+      "distance": "26.2 mi",
+      "date": "2026-09-27",
+      "location": "Berlin • Germany",
+      "leader": "Sharad",
+      "runners": [
+        "Sharad",
+        "Ashok K"
+      ]
+    },
+    {
+      "id": "london-marathon-2026",
+      "name": "TCS London Marathon",
+      "url": "https://www.londonmarathonevents.co.uk/london-marathon",
+      "distance": "26.2 mi",
+      "date": "2026-04-26",
+      "location": "London • UK",
+      "leader": "Ananda",
+      "runners": [
+        "Ananda"
       ]
     }
   ]
