@@ -1,0 +1,23 @@
+{
+  "year": 2026,
+  "races": [
+    {
+      "name": "Bank of America Half Marathon 13.1",
+      "url": "https://www.chicago13point1.com",
+      "distance": "13.1 mi",
+      "date": "2026-06-07",
+      "location": "Garfield Park • Chicago, IL",
+      "leader": "Ananda",
+      "leaderEmail": "wellnesswarriorschicago@gmail.com"
+    },
+    {
+      "name": "Bank of America Chicago Marathon",
+      "url": "https://www.chicagomarathon.com/",
+      "distance": "26.2 mi",
+      "date": "2026-10-11",
+      "location": "Grant Park • Chicago, IL",
+      "leader": "Veera",
+      "leaderEmail": "wellnesswarriorschicago@gmail.com"
+    }
+  ]
+}
