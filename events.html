@@ -7,16 +7,39 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-FPXS9SZL3W');
   </script>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>Wellness Warriors — Race Events</title>
+  <title>Wellness Warriors – Race Events</title>
   <meta name="description" content="Upcoming races the Wellness Warriors are running: dates, distances, locations, and race leaders." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .runners-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .runner-tag {
+        display: inline-block;
+        padding: 8px 16px;                 /* ⬅ BIGGER padding (key change) */
+        background: rgba(249, 115, 22, 0.14);
+        border: 2px solid rgba(249, 115, 22, 0.55);
+        border-radius: 999px;              /* ⬅ true pill shape */
+        font-size: 13px;
+        line-height: 1;                    /* ⬅ prevents vertical squish */
+        color: var(--text, #333);
+      }
+
+    .runner-count {
+      font-weight: 600;
+      color: rgba(249, 115, 22, 1);
+    }
+
+  </style>
 </head>
 
 <body>
@@ -79,8 +102,8 @@
         <a href="index.html#guidelines">Guidelines</a>
         <a href="index.html#schedule">Schedule</a>
         <a href="index.html#training">Training</a>
-        <a href="running-tips.html" class="active">Running Tips</a>
-        <a href="events.html">Events</a>
+        <a href="running-tips.html">Running Tips</a>
+        <a href="events.html" class="active">Events</a>
         <a href="index.html#photos">Photos</a>
       </nav>
   
@@ -118,7 +141,7 @@
         <div class="hero-left reveal">
           <div class="chips">
             <span class="chip"><span class="chip-icon">📅</span> Race calendar</span>
-            <span class="chip"><span class="chip-icon">🏁</span> Half + Full</span>
+            <span class="chip"><span class="chip-icon">🏃</span> Half + Full</span>
             <span class="chip"><span class="chip-icon">🤝</span> Leader-led</span>
           </div>
 
@@ -127,7 +150,7 @@
           </h1>
 
           <p class="hero-subtitle">
-            Here’s what the team is running next. Each race has a Wellness Warriors race leader —
+            Here's what the team is running next. Each race has a Wellness Warriors race leader –
             reach out to coordinate carpools, hotels, shakeouts, and meet-up spots.
           </p>
 
@@ -193,13 +216,21 @@
         <div class="glass card reveal">
           <div class="card-top">
             <div>
-              <div class="card-kicker">2026</div>
+              <div class="card-kicker" id="raceYear">2026</div>
               <div class="card-title">Wellness Warriors race calendar</div>
             </div>
             <span class="badge">Live</span>
           </div>
 
-          <div style="overflow:auto">
+          <div id="loadingState" style="padding: 40px; text-align: center; color: var(--text-muted, #888);">
+            Loading races...
+          </div>
+
+          <div id="errorState" style="padding: 40px; text-align: center; color: var(--text-muted, #888); display: none;">
+            Unable to load races. Please try again later.
+          </div>
+
+          <div id="tableContainer" style="overflow:auto; display: none;">
             <table class="table" style="width:100%; border-collapse:separate; border-spacing:0 10px">
               <thead>
                 <tr style="text-align:left">
@@ -207,45 +238,12 @@
                   <th style="padding:10px 12px">Distance</th>
                   <th style="padding:10px 12px">Date</th>
                   <th style="padding:10px 12px">Location</th>
-                  <th style="padding:10px 12px">Wellness Warriors race leader</th>
+                  <th style="padding:10px 12px">Race leader</th>
+                  <th style="padding:10px 12px">Runners</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="glass">
-                  <td style="padding:10px 12px">
-                    <strong>
-                      <a href="https://www.chicago13point1.com" target="_blank" rel="noreferrer">
-                        Bank of America Half Marathon 13.1
-                      </a>
-                    </strong>
-                  </td>
-                  <td style="padding:10px 12px">13.1 mi</td>
-                  <td style="padding:10px 12px">Sun, Jun 7, 2026</td>
-                  <td style="padding:10px 12px">Garfield Park • Chicago, IL</td>
-                  <td style="padding:10px 12px">
-                    <a href="mailto:wellnesswarriorschicago@gmail.com?subject=Chicago%20Half%20Marathon%20-%20Wellness%20Warriors%20Meetup">
-                      Ananda
-                    </a>
-                  </td>
-                </tr>
-
-                <tr class="glass">
-                  <td style="padding:10px 12px">
-                    <strong>
-                      <a href="https://www.chicagomarathon.com/" target="_blank" rel="noreferrer">
-                        Bank of America Chicago Marathon
-                      </a>
-                    </strong>
-                  </td>
-                  <td style="padding:10px 12px">26.2 mi</td>
-                  <td style="padding:10px 12px">Sun, Oct 11, 2026</td>
-                  <td style="padding:10px 12px">Grant Park • Chicago, IL</td>
-                  <td style="padding:10px 12px">
-                    <a href="mailto:wellnesswarriorschicago@gmail.com?subject=Chicago%20Marathon%20-%20Wellness%20Warriors%20Meetup">
-                      Veera
-                    </a>
-                  </td>
-                </tr>
+              <tbody id="racesTableBody">
+                <!-- Races will be inserted here dynamically -->
               </tbody>
             </table>
           </div>
@@ -276,5 +274,102 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    // Load race data from JSON file
+    async function loadRaces() {
+      const loadingEl = document.getElementById('loadingState');
+      const errorEl = document.getElementById('errorState');
+      const tableEl = document.getElementById('tableContainer');
+      const tbody = document.getElementById('racesTableBody');
+      
+      try {
+        // Fetch the races data from JSON file
+        const response = await fetch('https://raw.githubusercontent.com/wellnesswarriors/running-club/refs/heads/main/races.json?v=2');
+        
+        if (!response.ok) {
+          throw new Error('Failed to load races');
+        }
+        
+        const data = await response.json();
+        
+        // Update year if provided
+        if (data.year) {
+          document.getElementById('raceYear').textContent = data.year;
+        }
+        
+        // Clear existing content
+        tbody.innerHTML = '';
+        
+        // Sort races by date
+        const sortedRaces = data.races.sort((a, b) => new Date(a.date) - new Date(b.date));
+        
+        // Generate table rows
+        sortedRaces.forEach(race => {
+          const row = document.createElement('tr');
+          row.className = 'glass';
+          
+          const emailSubject = encodeURIComponent(`${race.name} - Wellness Warriors Meetup`);
+          const emailLink = `mailto:${race.leaderEmail || 'wellnesswarriorschicago@gmail.com'}?subject=${emailSubject}`;
+          
+          // Format runners list
+          const runnersHTML = formatRunners(race.runners || []);
+          
+          row.innerHTML = `
+            <td style="padding:10px 12px">
+              <strong>
+                <a href="${race.url}" target="_blank" rel="noreferrer">
+                  ${race.name}
+                </a>
+              </strong>
+            </td>
+            <td style="padding:10px 12px">${race.distance}</td>
+            <td style="padding:10px 12px">${formatDate(race.date)}</td>
+            <td style="padding:10px 12px">${race.location}</td>
+            <td style="padding:10px 12px">${race.leader}</td>
+            <td style="padding:10px 12px">
+              ${runnersHTML}
+            </td>
+          `;
+          
+          tbody.appendChild(row);
+        });
+        
+        // Show table, hide loading
+        loadingEl.style.display = 'none';
+        tableEl.style.display = 'block';
+        
+      } catch (error) {
+        console.error('Error loading races:', error);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+      }
+    }
+    
+    // Format runners list
+    function formatRunners(runners) {
+      if (!runners || runners.length === 0) {
+        return '<span style="color: var(--text-muted, #888); font-style: italic;">No signups yet</span>';
+      }
+      
+      const count = runners.length;
+      const countBadge = `<span class="runner-count">${count}</span> runner${count !== 1 ? 's' : ''}`;
+      
+      const runnerTags = runners.map(name => 
+        `<span class="runner-tag">${name}</span>`
+      ).join('');
+      
+      return `<div style="margin-bottom: 6px;">${countBadge}</div><div class="runners-list">${runnerTags}</div>`;
+    }
+    
+    // Format date to readable format
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+    }
+    
+    // Load races when page loads
+    document.addEventListener('DOMContentLoaded', loadRaces);
+  </script>
 </body>
 </html>
