@@ -75,6 +75,18 @@
       "runners": [
         "Ananda"
       ]
+    },
+    {
+      "id": "chevron-houston-marathon-2026",
+      "name": "Chevron Houston Marathon",
+      "url": "https://www.chevronhoustonmarathon.com",
+      "distance": "26.2 mi",
+      "date": "2026-01-11",
+      "location": "Houston • Texas",
+      "leader": "Ram",
+      "runners": [
+        "Ram"
+      ]
     }
   ]
 }
