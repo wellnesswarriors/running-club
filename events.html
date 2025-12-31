@@ -39,6 +39,58 @@
       color: rgba(249, 115, 22, 1);
     }
 
+    /* --- Responsive race list --- */
+#tableContainer { overflow: visible; } /* we’ll control overflow on desktop only */
+
+.race-cards { display: none; margin-top: 14px; }
+.race-card {
+  padding: 14px;
+  border-radius: 18px;
+}
+.race-title a { text-decoration: none; }
+.race-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--text, #333);
+}
+.race-pillrow { display: flex; flex-wrap: wrap; gap: 8px; }
+.race-pill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  font-size: 13px;
+}
+.race-label { color: var(--text-muted, #888); font-size: 12px; margin-bottom: 4px; }
+.race-value { font-weight: 600; }
+
+@media (min-width: 860px) {
+  /* Desktop/table view */
+  #tableContainer { overflow: auto; }
+  .race-cards { display: none; }
+}
+
+@media (max-width: 859px) {
+  /* Mobile/card view */
+  #tableContainer { display: none !important; }
+  .race-cards { display: grid; gap: 12px; }
+  table.table thead { display: none; } /* just in case */
+}
+
+.race-cards { display: none; gap: 12px; margin-top: 14px; }
+
+@media (max-width: 859px) {
+  #tableContainer { display: none !important; }
+  .race-cards { display: grid !important; }
+}
+
+@media (min-width: 860px) {
+  #tableContainer { display: block !important; }
+  .race-cards { display: none !important; }
+}
+
   </style>
 </head>
 
@@ -247,6 +299,8 @@
               </tbody>
             </table>
           </div>
+          <div id="cardsContainer" class="race-cards"></div>
+
 
           <div class="card-actions" style="margin-top:10px">
             <a class="btn btn-primary" href="index.html#contact">Volunteer as a race leader <span class="arrow">→</span></a>
@@ -281,10 +335,12 @@
       const errorEl = document.getElementById('errorState');
       const tableEl = document.getElementById('tableContainer');
       const tbody = document.getElementById('racesTableBody');
+      const cards = document.getElementById('cardsContainer');
+
       
       try {
         // Fetch the races data from JSON file
-        const response = await fetch('https://raw.githubusercontent.com/wellnesswarriors/running-club/refs/heads/main/races.json?v=2');
+        const response = await fetch('https://raw.githubusercontent.com/wellnesswarriors/running-club/refs/heads/main/races.json?v=3');
         
         if (!response.ok) {
           throw new Error('Failed to load races');
@@ -299,6 +355,8 @@
         
         // Clear existing content
         tbody.innerHTML = '';
+        cards.innerHTML = '';
+
         
         // Sort races by date
         const sortedRaces = data.races.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -332,16 +390,49 @@
           `;
           
           tbody.appendChild(row);
+          const card = document.createElement('div');
+          card.className = 'glass race-card';
+
+          card.innerHTML = `
+            <div class="race-title">
+              <div class="race-label">Race</div>
+              <div class="race-value" style="font-size:16px; line-height:1.25;">
+                <a href="${race.url}" target="_blank" rel="noreferrer">${race.name}</a>
+              </div>
+            </div>
+
+            <div class="race-meta">
+              <div class="race-pillrow">
+                <span class="race-pill">📏 ${race.distance}</span>
+                <span class="race-pill">📅 ${formatDate(race.date)}</span>
+                <span class="race-pill">📍 ${race.location}</span>
+              </div>
+
+              <div>
+                <div class="race-label">Race leader</div>
+                <div class="race-value">${race.leader}</div>
+              </div>
+
+              <div>
+                <div class="race-label">Runners</div>
+                ${runnersHTML}
+              </div>
+            </div>
+          `;
+
+          cards.appendChild(card);
+
         });
         
         // Show table, hide loading
         loadingEl.style.display = 'none';
-        tableEl.style.display = 'block';
+        tableEl.style.display = ''; // let CSS decide
+        document.getElementById('cardsContainer').style.display = ''; // let CSS decide
         
       } catch (error) {
         console.error('Error loading races:', error);
-        loadingEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        tableEl.style.display = 'none';
+        document.getElementById('cardsContainer').style.display = 'none';
       }
     }
     
