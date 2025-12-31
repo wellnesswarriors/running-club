@@ -8,7 +8,14 @@
       "date": "2026-06-07",
       "location": "Garfield Park • Chicago, IL",
       "leader": "Ananda",
-      "leaderEmail": "wellnesswarriorschicago@gmail.com"
+      "leaderEmail": "wellnesswarriorschicago@gmail.com",
+      "runners": [
+        "Sarah Johnson",
+        "Mike Chen",
+        "Emily Rodriguez",
+        "David Park",
+        "Jessica Lee"
+      ]
     },
     {
       "name": "Bank of America Chicago Marathon",
@@ -17,7 +24,12 @@
       "date": "2026-10-11",
       "location": "Grant Park • Chicago, IL",
       "leader": "Veera",
-      "leaderEmail": "wellnesswarriorschicago@gmail.com"
+      "leaderEmail": "wellnesswarriorschicago@gmail.com",
+      "runners": [
+        "Alex Martinez",
+        "Priya Patel",
+        "James Wilson"
+      ]
     }
   ]
 }
