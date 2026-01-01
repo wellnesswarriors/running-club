@@ -10,18 +10,38 @@
       "location": "Garfield Park • Chicago",
       "leader": "Ananda",
       "runners": [
+        "Sharad",
         "Ananda",
-        "Arun S",
+        "Veera",
         "Ashok K",
         "Ashok V",
-        "Dhana",
         "Ram",
-        "Senthilvel",
-        "Sharad",
-        "Srini R",
-        "Veera",
-        "Vikram",
+        "Dhana",
         "Vishal"
+      ]
+    },
+    {
+      "id": "boston-marathon-2026",
+      "name": "130TH BOSTON MARATHON",
+      "url": "https://www.baa.org/races/boston-marathon/",
+      "distance": "26.2 mi",
+      "date": "2026-04-20",
+      "location": "Hopkinton • Massachusetts",
+      "leader": "Rajesh S",
+      "runners": [
+        "Rajesh S"
+      ]
+    },
+    {
+      "id": "sydney-marathon-2026",
+      "name": "TCS Sydney Marathon",
+      "url": "https://www.tcssydneymarathon.com",
+      "distance": "26.2 mi",
+      "date": "2026-10-30",
+      "location": "Sydney • Australia",
+      "leader": "Rajesh S",
+      "runners": [
+        "Rajesh S"
       ]
     },
     {
@@ -33,17 +53,13 @@
       "location": "Grant Park • Chicago",
       "leader": "Veera",
       "runners": [
+        "Sharad",
         "Ananda",
-        "Arun S",
+        "Veera",
         "Ashok K",
         "Ashok V",
-        "Dhana",
         "Ram",
-        "Senthilvel",
-        "Sharad",
-        "Srini R",
-        "Veera",
-        "Vikram",
+        "Dhana",
         "Vishal"
       ]
     },
