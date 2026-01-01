@@ -501,32 +501,32 @@
       return `${name}-${date}`;
     }
 
-    // Render signup UI (unique per race)
+    // Render signup UI (works on desktop + mobile; no duplicate IDs)
     function renderSignup(raceId) {
-      const safeId = String(raceId).replace(/[^a-zA-Z0-9_-]/g, '_');
       return `
         <div class="signup" data-race-id="${raceId}">
-          <input type="text" id="runner_${safeId}" placeholder="Add your name" autocomplete="name" maxlength="40" />
-          <button class="btn-inline" type="button" onclick="addRunner('${raceId}', '${safeId}')">Add</button>
-          <div class="msg" id="msg_${safeId}" aria-live="polite"></div>
+          <input type="text" placeholder="Add your name" autocomplete="name" maxlength="40" />
+          <button class="btn-inline" type="button" onclick="addRunnerFrom(this, '${raceId}')">Add</button>
+          <div class="msg" aria-live="polite"></div>
         </div>
       `;
     }
 
+
     // POST to Vercel API and refresh UI
-    async function addRunner(raceId, safeId) {
-      const input = document.getElementById(`runner_${safeId}`);
-      const msg = document.getElementById(`msg_${safeId}`);
-      const btn = input?.parentElement?.querySelector('button.btn-inline');
+    async function addRunnerFrom(btnEl, raceId) {
+      const wrap = btnEl?.closest('.signup');
+      const input = wrap?.querySelector('input[type="text"]');
+      const msg = wrap?.querySelector('.msg');
 
       const runnerName = (input?.value || '').trim().replace(/\s+/g, ' ');
       if (!runnerName) {
-        msg.textContent = 'Please enter your name.';
+        if (msg) msg.textContent = 'Please enter your name.';
         return;
       }
 
-      msg.textContent = 'Adding…';
-      if (btn) btn.disabled = true;
+      if (msg) msg.textContent = 'Adding…';
+      if (btnEl) btnEl.disabled = true;
 
       try {
         const resp = await fetch('https://running-club-api.vercel.app/api/add-runner', {
@@ -539,21 +539,23 @@
 
         if (!resp.ok) {
           const errText = payload?.error ? `${payload.error}` : 'Unable to add runner.';
-          msg.textContent = payload?.detail ? `${errText}` : errText;
+          if (msg) msg.textContent = payload?.detail ? `${errText}` : errText;
           return;
         }
 
-        msg.textContent = payload.added ? 'Added! Refreshing…' : 'You are already on the list. Refreshing…';
+        if (msg) msg.textContent = payload.added ? 'Added! Refreshing…' : 'You are already on the list. Refreshing…';
         if (input) input.value = '';
 
-        // Reload races (cache-busted) so the list updates everywhere
         await loadRaces();
       } catch (e) {
-        msg.textContent = 'Network error. Please try again.';
+        if (msg) msg.textContent = 'Network error. Please try again.';
       } finally {
-        if (btn) btn.disabled = false;
+        if (btnEl) btnEl.disabled = false;
       }
     }
+
+    // Make sure inline onclick can find it
+    window.addRunnerFrom = addRunnerFrom;
 
     // Format runners list
     function formatRunners(runners) {
