@@ -67,15 +67,16 @@
     },
     {
       "id": "chciagoland-spring-marathon-2026",
-      "name": "Chicagoland Spring Marathon",
+      "name": "Chicagoland Spring Marathon, Half Marathon and 10K",
       "url": "https://allcommunityevents.com/chicagolandspringmarathon",
-      "distance": "26.2 mi",
+      "distance": "26.2 mi / 13.1 mi / 10k",
       "date": "2026-05-03",
       "location": "Bussee Woods • Schaumburg",
       "leader": "Ram",
       "runners": [
-        "Ashok V",
-        "Ram"
+        "Ashok V (Marathon)",
+        "Ram (Marathon)",
+        "Upender (Half Marathon)"
       ]
     },
     {
